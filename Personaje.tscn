@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgtjcl66cwsyr"]
+
+[ext_resource type="Script" uid="uid://dbx4ivg16mxbh" path="res://Player.gd" id="1_48aib"]
+[ext_resource type="Environment" uid="uid://b5t3imwgoregf" path="res://Images/Nivel1_Demo.tres" id="2_47rpa"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_joryr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m64m5"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_48aib")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_joryr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_m64m5")
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.507263, -0.372398)
+
+[node name="PlayerCamera" type="Camera3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0742168, 0.281258, 0.32293)
+keep_aspect = 0
+environment = ExtResource("2_47rpa")
+doppler_tracking = 2
+current = true
+fov = 100.0
+
+[node name="RayCast3D" type="RayCast3D" parent="Pivot/PlayerCamera"]
+target_position = Vector3(0, 0, -5)

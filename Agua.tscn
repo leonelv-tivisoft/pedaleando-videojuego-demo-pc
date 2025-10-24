@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://bv7vixtlqklcx"]
+
+[ext_resource type="Shader" uid="uid://y4j4gne2aqp3" path="res://AGUA.gdshader" id="1_0en2p"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1bxkd"]
+size = Vector3(233.09, 5.46, 192.245)
+subdivide_width = 200
+subdivide_depth = 200
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_57506"]
+noise_type = 3
+offset = Vector3(645.16, 0, 0)
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eum5m"]
+seamless = true
+as_normal_map = true
+bump_strength = 32.0
+noise = SubResource("FastNoiseLite_57506")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_67qpp"]
+noise_type = 3
+seed = 10
+offset = Vector3(-1000, 0, 0)
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tyit6"]
+seamless = true
+as_normal_map = true
+bump_strength = 7.0
+noise = SubResource("FastNoiseLite_67qpp")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0en2p"]
+frequency = 0.0042
+fractal_gain = 0.275
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1bxkd"]
+invert = true
+seamless = true
+noise = SubResource("FastNoiseLite_0en2p")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6026"]
+render_priority = 0
+shader = ExtResource("1_0en2p")
+shader_parameter/is_underwater = false
+shader_parameter/under_alpha = 1.0
+shader_parameter/under_color = Color(0.02, 0.11, 0.16, 1)
+shader_parameter/under_darkness = 0.8
+shader_parameter/under_roughness = 1.0
+shader_parameter/under_fog_density = 1.0
+shader_parameter/albedo = Color(0, 0.634839, 0.725061, 1)
+shader_parameter/albedo2 = Color(0, 1, 0.678431, 1)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.002
+shader_parameter/wave = SubResource("NoiseTexture2D_1bxkd")
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_eum5m")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_tyit6")
+shader_parameter/wave_direction = Vector2(2, 0)
+shader_parameter/wave_direction2 = Vector2(0, 1)
+shader_parameter/time_scale = 0.01
+shader_parameter/noise_scale = 1.13
+shader_parameter/height_scale = 0.125
+shader_parameter/color_deep = Color(0.617454, 0.617455, 0.617455, 1)
+shader_parameter/color_shallow = Color(0, 0, 0, 1)
+shader_parameter/beers_law = 2.0
+shader_parameter/depth_offset = -75.0
+shader_parameter/edge_scale = 0.1
+shader_parameter/near = 1.0
+shader_parameter/far = 55.34
+shader_parameter/edge_color = Color(1, 1, 1, 1)
+
+[node name="Agua" type="MeshInstance3D"]
+transform = Transform3D(2.49756, 0, 0, 0, 1, 0, 0, 0, 2.12801, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_1bxkd")
+surface_material_override/0 = SubResource("ShaderMaterial_g6026")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.71233, 37.9375)

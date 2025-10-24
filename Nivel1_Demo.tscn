@@ -1,0 +1,301 @@
+[gd_scene load_steps=33 format=3 uid="uid://1jyn7n55pj5a"]
+
+[ext_resource type="Script" uid="uid://d0htwykjktqp6" path="res://nivel_1_demo.gd" id="1_m64m5"]
+[ext_resource type="Environment" uid="uid://b5t3imwgoregf" path="res://Images/Nivel1_Demo.tres" id="3_5uy85"]
+[ext_resource type="PackedScene" uid="uid://dgtjcl66cwsyr" path="res://Personaje.tscn" id="4_uoxt3"]
+[ext_resource type="Script" uid="uid://cmmjl57s4665o" path="res://UnderwaterSwitch.gd" id="6_f8u1r"]
+[ext_resource type="PackedScene" uid="uid://bgsogx8olns7w" path="res://Arena.tscn" id="6_nl528"]
+[ext_resource type="PackedScene" uid="uid://bv7vixtlqklcx" path="res://Agua.tscn" id="7_uoxt3"]
+[ext_resource type="PackedScene" uid="uid://byebw6tq2cx3i" path="res://Pasarela_Madera.blend" id="8_8wh2g"]
+[ext_resource type="PackedScene" uid="uid://c2vwp8733l8dv" path="res://Assets_playeros.blend" id="12_6o6jf"]
+[ext_resource type="PackedScene" uid="uid://cm6mp4horf60o" path="res://Montañas.blend" id="13_2uaxw"]
+[ext_resource type="Script" uid="uid://c17v2moafngdh" path="res://Fade_in.gd" id="13_f8u1r"]
+[ext_resource type="Theme" uid="uid://dfvbuw7bnaiyl" path="res://TemaBotones.tres" id="14_bmqie"]
+[ext_resource type="ArrayOccluder3D" uid="uid://di4lsyj7rjxmh" path="res://Nivel1_Demo.occ" id="14_f8u1r"]
+[ext_resource type="PackedScene" uid="uid://b43as65ty3x2m" path="res://SalvavidasDelimitadores.blend" id="14_uoxt3"]
+[ext_resource type="PackedScene" uid="uid://burortaqf815t" path="res://VegetacionPlaya.blend" id="15_30p7m"]
+[ext_resource type="PackedScene" uid="uid://bj4l12pwu20wy" path="res://exit_dialog.tscn" id="15_uoxt3"]
+[ext_resource type="FontFile" uid="uid://ccw85tcxbfsoy" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="17_oafcm"]
+[ext_resource type="FontFile" uid="uid://canvkx00sdd8" path="res://Fonts/comforta/Comfortaa-Regular.ttf" id="18_7snaq"]
+[ext_resource type="Script" uid="uid://btpj7peun3fpg" path="res://dialogue_box.gd" id="19_3v12d"]
+[ext_resource type="PackedScene" uid="uid://b80ysuty5a8lh" path="res://PilaLlanta.tscn" id="19_bmqie"]
+[ext_resource type="PackedScene" uid="uid://or55ry66vrvh" path="res://BolsaBasura.tscn" id="20_oafcm"]
+[ext_resource type="Texture2D" uid="uid://b4svakax6b3cg" path="res://Basura4.png" id="21_7snaq"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ioqx1"]
+dof_blur_far_distance = 28.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bf6rf"]
+size = Vector3(235.362, 5.72903, 192.521)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15eih"]
+bg_color = Color(0.180392, 0.333333, 0.407843, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 5.0
+expand_margin_top = 35.0
+expand_margin_right = 5.0
+expand_margin_bottom = 8.0
+shadow_color = Color(0, 0, 0, 0.760784)
+shadow_size = 4
+shadow_offset = Vector2(4.545, 6.02)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fimr5"]
+content_margin_left = 10.0
+content_margin_top = 30.0
+bg_color = Color(0.263711, 0.459962, 0.556113, 1)
+border_width_bottom = 10
+border_color = Color(0.262745, 0.458824, 0.556863, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qie43"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61cf8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afec1"]
+bg_color = Color(0.180392, 0.333333, 0.407843, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.0784314, 0.0784314, 0.0784314, 0.741176)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_31qfy"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hf418"]
+
+[sub_resource type="Theme" id="Theme_ekvse"]
+default_font = ExtResource("18_7snaq")
+default_font_size = 22
+AcceptDialog/colors/title_color = Color(0.866667, 1, 0.301961, 1)
+AcceptDialog/colors/title_outline_modulate = Color(0, 0, 0, 1)
+AcceptDialog/constants/buttons_min_height = 55
+AcceptDialog/constants/buttons_min_width = 85
+AcceptDialog/constants/title_outline_size = 5
+AcceptDialog/fonts/title_font = ExtResource("17_oafcm")
+AcceptDialog/icons/close = null
+AcceptDialog/icons/close_pressed = null
+AcceptDialog/styles/embedded_border = SubResource("StyleBoxFlat_15eih")
+AcceptDialog/styles/panel = SubResource("StyleBoxFlat_fimr5")
+Button/constants/outline_size = 10
+Button/styles/disabled = null
+Button/styles/focus = SubResource("StyleBoxFlat_qie43")
+Button/styles/hover = SubResource("StyleBoxFlat_61cf8")
+Button/styles/normal = SubResource("StyleBoxFlat_afec1")
+Button/styles/pressed = SubResource("StyleBoxFlat_31qfy")
+Panel/styles/panel = SubResource("StyleBoxFlat_hf418")
+Tree/styles/panel = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_we6oh"]
+font_size = 14
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_m64m5")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_5uy85")
+camera_attributes = SubResource("CameraAttributesPractical_ioqx1")
+
+[node name="Player" parent="." node_paths=PackedStringArray("water_area", "water_surface") instance=ExtResource("4_uoxt3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.12314, 6.1265, 25.9416)
+water_area = NodePath("../Agua2/Area3D")
+water_surface = NodePath("../Agua")
+water_gravity = 0.8
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.49058, 0.312998, -0.813243, 0.161674, 0.949754, 0.26801, 0.856267, 0, -0.516534, 0, 18.5808, 0)
+light_color = Color(1, 0.984314, 0.678431, 1)
+light_energy = 4.335
+shadow_enabled = true
+shadow_bias = 0.02
+shadow_normal_bias = 0.6
+directional_shadow_blend_splits = true
+
+[node name="Arena2" parent="." instance=ExtResource("6_nl528")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.5557, -22.3752, 2.45)
+
+[node name="Agua" parent="." instance=ExtResource("7_uoxt3")]
+transform = Transform3D(-9.04826e-08, 0, 1.105, 0, 8.204, 0, -2.07, 0, -4.83011e-08, -103.396, -19.0217, 2.26096)
+script = ExtResource("6_f8u1r")
+
+[node name="Agua2" parent="." instance=ExtResource("7_uoxt3")]
+transform = Transform3D(-9.04826e-08, 0, 1.105, 0, 8.204, 0, -2.07, 0, -4.83011e-08, -103.396, -18.8639, 2.261)
+mesh = null
+script = ExtResource("6_f8u1r")
+
+[node name="Area3D" type="Area3D" parent="Agua2"]
+transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, -0.5, 0)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Agua2/Area3D"]
+transform = Transform3D(1, 0, 2.49578e-12, 0, 1, 0, -1.02389e-11, 0, 1, 0.240334, 0.506638, -3.76417)
+shape = SubResource("BoxShape3D_bf6rf")
+debug_color = Color(3.65794e-06, 0.740473, 0.864301, 1)
+
+[node name="Pasarela_Madera" parent="." instance=ExtResource("8_8wh2g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.671, 4.91803, 93.5777)
+
+[node name="Montañas" parent="." instance=ExtResource("13_2uaxw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.4629, 4.27079, -0.184942)
+
+[node name="Assets_playeros" parent="." instance=ExtResource("12_6o6jf")]
+transform = Transform3D(1.92, 0, 0, 0, 1.92, 0, 0, 0, 1.92, 11.7343, 4.92199, 9.51579)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("13_f8u1r")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="IntroCamera" type="Camera3D" parent="."]
+transform = Transform3D(0.0157073, -0.0523295, 0.998506, 0, 0.99863, 0.052336, -0.999877, -0.000822056, 0.0156858, 61.3668, 37.3643, 1.48896)
+keep_aspect = 0
+fov = 100.0
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+visible = false
+occluder = ExtResource("14_f8u1r")
+
+[node name="ExitDialog" parent="." instance=ExtResource("15_uoxt3")]
+initial_position = 1
+visible = false
+theme = ExtResource("14_bmqie")
+dialog_text = "          ¿Estas seguro que quieres salir?"
+
+[node name="SalvavidasDelimitadores" parent="." instance=ExtResource("14_uoxt3")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -117.615, 3.74413, 223.028)
+
+[node name="VegetacionPlaya" parent="." instance=ExtResource("15_30p7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.613, 12.2272, 3.58155)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="DialogueBox" type="Control" parent="CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -346.5
+offset_right = 346.5
+offset_bottom = 189.0
+grow_horizontal = 2
+theme = SubResource("Theme_ekvse")
+script = ExtResource("19_3v12d")
+
+[node name="Panel" type="Panel" parent="CanvasLayer2/DialogueBox"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 30.0
+offset_right = 693.0
+offset_bottom = 160.0
+theme = ExtResource("14_bmqie")
+
+[node name="Title" type="Label" parent="CanvasLayer2/DialogueBox/Panel"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = -16.0
+offset_right = 415.0
+offset_bottom = 14.0
+text = "¡Bienvenido!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text" type="RichTextLabel" parent="CanvasLayer2/DialogueBox/Panel"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 27.0
+offset_right = 662.0
+offset_bottom = 182.0
+theme = ExtResource("14_bmqie")
+theme_override_constants/outline_size = 9
+theme_override_constants/line_separation = 10
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Ahora te encuentras en la playa, rodeado de hermosas palmeras y un sol radiante, pero, necesitamos de tu ayuda para recoger la basura que se encuentra en la playa y el mar... "
+
+[node name="Hint" type="Label" parent="CanvasLayer2/DialogueBox/Panel"]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 104.0
+offset_right = 750.0
+offset_bottom = 127.0
+text = "\"Pulsa ESPACIO\""
+label_settings = SubResource("LabelSettings_we6oh")
+
+[node name="Node3D" parent="." instance=ExtResource("19_bmqie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5194, 5.37292, -13.0195)
+
+[node name="Node3D2" parent="." instance=ExtResource("20_oafcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.0539, 4.79268, 11.1242)
+
+[node name="Contador" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Contador"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -281.0
+offset_top = -118.0
+offset_right = -161.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("21_7snaq")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Contador"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -86.0
+offset_right = -27.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("17_oafcm")
+theme_override_font_sizes/font_size = 40
+text = "      /20"
+
+[node name="ContadorBasuras" type="Label" parent="Contador"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -166.0
+offset_top = -86.0
+offset_right = -33.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("17_oafcm")
+theme_override_font_sizes/font_size = 40
+text = "00"

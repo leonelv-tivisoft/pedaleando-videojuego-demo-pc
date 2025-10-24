@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://bj4l12pwu20wy"]
+
+[ext_resource type="FontFile" uid="uid://ccw85tcxbfsoy" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="1_0a22y"]
+[ext_resource type="Script" uid="uid://d0uywyv1ye1pe" path="res://exit_dialog.gd" id="2_bwfy3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7cqb"]
+bg_color = Color(0.180392, 0.333333, 0.407843, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 5.0
+expand_margin_top = 35.0
+expand_margin_right = 5.0
+expand_margin_bottom = 8.0
+shadow_color = Color(0, 0, 0, 0.760784)
+shadow_size = 4
+shadow_offset = Vector2(4.545, 6.02)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fimr5"]
+content_margin_left = 10.0
+content_margin_top = 30.0
+bg_color = Color(0.263711, 0.459962, 0.556113, 1)
+border_width_bottom = 10
+border_color = Color(0.262745, 0.458824, 0.556863, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qie43"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61cf8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afec1"]
+bg_color = Color(0.180392, 0.333333, 0.407843, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.0784314, 0.0784314, 0.0784314, 0.741176)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_31qfy"]
+draw_center = false
+
+[sub_resource type="Theme" id="Theme_u7cqb"]
+default_font = ExtResource("1_0a22y")
+default_font_size = 20
+AcceptDialog/colors/title_color = Color(0.866667, 1, 0.301961, 1)
+AcceptDialog/colors/title_outline_modulate = Color(0, 0, 0, 1)
+AcceptDialog/constants/buttons_min_height = 55
+AcceptDialog/constants/buttons_min_width = 85
+AcceptDialog/constants/title_outline_size = 5
+AcceptDialog/fonts/title_font = ExtResource("1_0a22y")
+AcceptDialog/icons/close = null
+AcceptDialog/icons/close_pressed = null
+AcceptDialog/styles/embedded_border = SubResource("StyleBoxFlat_u7cqb")
+AcceptDialog/styles/panel = SubResource("StyleBoxFlat_fimr5")
+Button/constants/outline_size = 10
+Button/styles/disabled = null
+Button/styles/focus = SubResource("StyleBoxFlat_qie43")
+Button/styles/hover = SubResource("StyleBoxFlat_61cf8")
+Button/styles/normal = SubResource("StyleBoxFlat_afec1")
+Button/styles/pressed = SubResource("StyleBoxFlat_31qfy")
+Tree/styles/panel = null
+
+[node name="ExitDialog" type="ConfirmationDialog"]
+auto_translate_mode = 1
+title = "Espera un poco..."
+size = Vector2i(398, 133)
+visible = true
+theme = SubResource("Theme_u7cqb")
+ok_button_text = "Si"
+dialog_text = "¿Estas seguro que quieres salir?"
+dialog_autowrap = true
+cancel_button_text = "No!"
+script = ExtResource("2_bwfy3")

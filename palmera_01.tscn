@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5td6j0fmmpx5"]
+
+[ext_resource type="PackedScene" uid="uid://dllt42ms5usmu" path="res://Models/Palmera_01/Palmera_01.glb" id="1_njpx3"]
+[ext_resource type="Texture2D" uid="uid://ckc0crfhy7a2x" path="res://Models/Palmera_01/Palmera_01_AO.png" id="3_j6eqr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5dj07"]
+ao_enabled = true
+ao_texture = ExtResource("3_j6eqr")
+ao_texture_channel = 4
+
+[node name="Palmera_01" instance=ExtResource("1_njpx3")]
+
+[node name="Palmera1" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_5dj07")

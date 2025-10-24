@@ -1,0 +1,68 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Godot Engine - recommended ignores for Godot projects (plus common OS/IDE/node items)
+
+# Godot caches, local editor state, exports and Mono build artifacts
+.import/
+.export/
+.godot/
+.mono/
+
+# Godot generated/imported files
+*.import
+*.mono
+*.gdnlib/
+*.godot.*
+
+# Editor backup/temp files
+*~
+*.tmp
+*.temp
+*.bak
+
+# Build outputs / binaries
+bin/
+obj/
+build/
+dist/
+
+# C# / Visual Studio / Rider
+*.sln
+*.csproj
+*.user
+*.userprefs
+*.vcxproj*
+*.pdb
+*.mdb
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Node / web tooling (if present in project)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-store/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Archives / packages
+*.zip
+*.tar.gz
+*.rar
+
+# If you want to track export presets for collaboration, keep export_presets.cfg.
+# Otherwise uncomment to ignore:
+# export_presets.cfg

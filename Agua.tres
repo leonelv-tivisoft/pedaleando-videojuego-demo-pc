@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dff2fdiwipqdj"]
+
+[sub_resource type="GDScript" id="GDScript_iffyf"]
+
+[resource]
+transparency = 4
+blend_mode = 4
+albedo_color = Color(0.105882, 0.388235, 0.541176, 0.878431)
+metallic = 0.2
+roughness = 0.2
+refraction_enabled = true
+script = SubResource("GDScript_iffyf")

@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://tw4nbxw3q5e4"]
+
+[ext_resource type="VideoStream" uid="uid://bf6esb3cl0axu" path="res://SplashVideoScreen.ogv" id="1_0fbet"]
+[ext_resource type="Script" uid="uid://mk5c0am3l5g0" path="res://SplashScreen.gd" id="1_62e2m"]
+[ext_resource type="FontFile" uid="uid://ccw85tcxbfsoy" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="3_qtu10"]
+[ext_resource type="Script" uid="uid://df8jiv44dynv1" path="res://omitir.gd" id="4_ee4bf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ee4bf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbped"]
+bg_color = Color(0, 0.286275, 0.392157, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.827451)
+shadow_size = 3
+shadow_offset = Vector2(3.615, 3.825)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtu10"]
+bg_color = Color(3.94672e-06, 0.555891, 0.745422, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.827451)
+shadow_size = 3
+shadow_offset = Vector2(3.615, 3.825)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_62e2m")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_0fbet")
+autoplay = true
+expand = true
+
+[node name="OMITIR" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -153.0
+offset_top = -77.0
+offset_right = -27.0
+offset_bottom = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_qtu10")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ee4bf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kbped")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qtu10")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kbped")
+text = "CONTINUAR"
+script = ExtResource("4_ee4bf")
+
+[node name="SkipTimer" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+autostart = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="pressed" from="OMITIR" to="." method="_on_omitir_pressed"]
+[connection signal="timeout" from="SkipTimer" to="." method="_on_skip_timer_timeout"]

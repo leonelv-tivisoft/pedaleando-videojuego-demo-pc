@@ -1,0 +1,7 @@
+[gd_resource type="PanoramaSkyMaterial" load_steps=2 format=3 uid="uid://wksp1utcljdo"]
+
+[ext_resource type="Texture2D" uid="uid://bxvkvouwwd5vp" path="res://Images/qwantani_sunset_2k.hdr" id="1_7ytjo"]
+
+[resource]
+panorama = ExtResource("1_7ytjo")
+energy_multiplier = 1.2
