@@ -18,7 +18,6 @@ config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 
 LocalizationManager="*res://Source/Core/Localization/LocalizationManager.cs"
 GameManager="*res://Source/Managers/GameManager.cs"
-GameManagerLegacy="*res://GameManager.gd"
 
 [dotnet]
 

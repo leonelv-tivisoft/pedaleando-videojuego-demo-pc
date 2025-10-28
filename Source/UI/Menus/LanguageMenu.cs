@@ -6,12 +6,15 @@ namespace PedaleandoGame.UI.Menus
 {
     public partial class LanguageMenu : Control
     {
-        [Export] private Button SpanishButton { get; set; }
-        [Export] private Button EnglishButton { get; set; }
-        [Export] private string MainMenuScene { get; set; } = "res://MainMenu.tscn";
+        private Button SpanishButton;
+        private Button EnglishButton;
+        [Export] private string MainMenuScene { get; set; } = "res://Source/UI/Menus/MainMenu.tscn";
 
         public override void _Ready()
         {
+            SpanishButton = GetNode<Button>("%SpanishButton");
+            EnglishButton = GetNode<Button>("%EnglishButton");
+
             if (SpanishButton != null)
                 SpanishButton.Pressed += () => OnLanguageSelected("es");
             
