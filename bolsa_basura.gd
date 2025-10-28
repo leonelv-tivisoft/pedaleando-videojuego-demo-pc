@@ -1,4 +1,6 @@
 # res://OutLineAssets.gd (bolsa_basura)
+# [DEPRECATED] This file is deprecated and will be removed. Use Source/Gameplay/Interactables/TrashBag.cs instead.
+# TODO: Remove this file after full migration to C#
 extends StaticBody3D
 
 # === TUS REFERENCIAS EXISTENTES (mantenidas) ===

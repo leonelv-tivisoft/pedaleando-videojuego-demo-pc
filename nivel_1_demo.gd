@@ -1,3 +1,5 @@
+# [DEPRECATED] This file is deprecated and will be removed. Use Source/Levels/Level1/Level1Demo.cs instead.
+# TODO: Remove this file after full migration to C#
 extends Node3D
 
 @export var intro_duration: float = 3.0

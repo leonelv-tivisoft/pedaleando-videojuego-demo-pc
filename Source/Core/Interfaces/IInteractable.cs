@@ -1,6 +1,6 @@
 using Godot;
 
-namespace PedaleandoGame.Core
+namespace PedaleandoGame.Core.Interfaces
 {
     /// <summary>
     /// Defines the contract for interactable objects in the game

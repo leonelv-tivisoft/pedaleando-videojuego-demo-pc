@@ -11,12 +11,14 @@ config_version=5
 [application]
 
 config/name="PedaleandoSinParar-Demo"
-run/main_scene="res://control.tscn"
-config/features=PackedStringArray("4.5", "Forward Plus")
+run/main_scene="res://Source/UI/Menus/LanguageMenu.tscn"
+config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 
 [autoload]
 
-GameManager="*res://GameManager.gd"
+LocalizationManager="*res://Source/Core/Localization/LocalizationManager.cs"
+GameManager="*res://Source/Managers/GameManager.cs"
+GameManagerLegacy="*res://GameManager.gd"
 
 [dotnet]
 
@@ -74,3 +76,7 @@ interact={
 global_illumination/voxel_gi/quality=1
 shading/overrides/force_vertex_shading=true
 occlusion_culling/use_occlusion_culling=true
+
+[settings]
+
+language="es"

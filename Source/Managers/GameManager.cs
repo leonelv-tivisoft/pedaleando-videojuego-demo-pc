@@ -8,16 +8,18 @@ namespace PedaleandoGame.Managers
     /// </summary>
     public partial class GameManager : Node, IGameManager
     {
-        [Signal]
-        public delegate void CountChangedEventHandler(int current, int goal);
-
         private int _count = 0;
         private int _goal = 20;
+
+        public event System.Action<int, int> CountChanged;
+
+        public int CurrentCount => _count;
+        public int CurrentGoal => _goal;
 
         public override void _Ready()
         {
             // Emit initial state in case something is already listening
-            EmitSignal(SignalName.CountChanged, _count, _goal);
+            CountChanged?.Invoke(_count, _goal);
         }
 
         /// <summary>
@@ -28,7 +30,7 @@ namespace PedaleandoGame.Managers
         {
             _count = 0;
             _goal = newGoal;
-            EmitSignal(SignalName.CountChanged, _count, _goal);
+            CountChanged?.Invoke(_count, _goal);
         }
 
         /// <summary>
@@ -38,7 +40,7 @@ namespace PedaleandoGame.Managers
         public void AddTrash(int amount = 1)
         {
             _count += amount;
-            EmitSignal(SignalName.CountChanged, _count, _goal);
+            CountChanged?.Invoke(_count, _goal);
         }
     }
 }

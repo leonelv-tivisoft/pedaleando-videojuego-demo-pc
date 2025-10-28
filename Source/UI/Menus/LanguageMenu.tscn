@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid=uid_placeholder]
+
+[ext_resource type="Script" path="res://Source/UI/Menus/LanguageMenu.cs" id="1_script"]
+[ext_resource type="Theme" path="res://TemaBotones.tres" id="2_theme"]
+
+[node name="LanguageMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.121569, 0.121569, 0.121569, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_theme")
+text = "Select Language / Seleccionar Idioma"
+horizontal_alignment = 1
+
+[node name="SpanishButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_theme")
+text = "Español"
+
+[node name="EnglishButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_theme")
+text = "English"

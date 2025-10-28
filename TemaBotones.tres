@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=9 format=3 uid="uid://dfvbuw7bnaiyl"]
 
-[ext_resource type="FontFile" uid="uid://ccw85tcxbfsoy" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="1_ffxvn"]
+[ext_resource type="FontFile" uid="uid://4nrqtwvetrjm" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="1_ffxvn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7cqb"]
 bg_color = Color(0.180392, 0.333333, 0.407843, 1)

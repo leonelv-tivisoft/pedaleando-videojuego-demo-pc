@@ -1,26 +1,26 @@
 [gd_scene load_steps=36 format=3 uid="uid://1jyn7n55pj5a"]
 
-[ext_resource type="Script" uid="uid://d0htwykjktqp6" path="res://nivel_1_demo.gd" id="1_m64m5"]
+[ext_resource type="Script" uid="uid://dudm5rsth0au1" path="res://Source/Levels/Level1/Level1Demo.cs" id="1_hf418"]
 [ext_resource type="Environment" uid="uid://b5t3imwgoregf" path="res://Images/Nivel1_Demo.tres" id="3_5uy85"]
 [ext_resource type="PackedScene" uid="uid://dgtjcl66cwsyr" path="res://Personaje.tscn" id="4_uoxt3"]
 [ext_resource type="Script" uid="uid://cmmjl57s4665o" path="res://UnderwaterSwitch.gd" id="6_f8u1r"]
 [ext_resource type="PackedScene" uid="uid://bgsogx8olns7w" path="res://Arena.tscn" id="6_nl528"]
 [ext_resource type="PackedScene" uid="uid://bv7vixtlqklcx" path="res://Agua.tscn" id="7_uoxt3"]
-[ext_resource type="PackedScene" uid="uid://byebw6tq2cx3i" path="res://Pasarela_Madera.blend" id="8_8wh2g"]
-[ext_resource type="PackedScene" uid="uid://c2vwp8733l8dv" path="res://Assets_playeros.blend" id="12_6o6jf"]
-[ext_resource type="PackedScene" uid="uid://cm6mp4horf60o" path="res://Montañas.blend" id="13_2uaxw"]
+[ext_resource type="PackedScene" uid="uid://cjwbl0wosgltw" path="res://Pasarela_Madera.blend" id="8_8wh2g"]
+[ext_resource type="PackedScene" uid="uid://insuh5yxjekt" path="res://Assets_playeros.blend" id="12_6o6jf"]
+[ext_resource type="PackedScene" uid="uid://bxl588hahmmge" path="res://Montañas.blend" id="13_2uaxw"]
 [ext_resource type="Script" uid="uid://c17v2moafngdh" path="res://Fade_in.gd" id="13_f8u1r"]
 [ext_resource type="Theme" uid="uid://dfvbuw7bnaiyl" path="res://TemaBotones.tres" id="14_bmqie"]
 [ext_resource type="ArrayOccluder3D" uid="uid://di4lsyj7rjxmh" path="res://Nivel1_Demo.occ" id="14_f8u1r"]
-[ext_resource type="PackedScene" uid="uid://b43as65ty3x2m" path="res://SalvavidasDelimitadores.blend" id="14_uoxt3"]
-[ext_resource type="PackedScene" uid="uid://burortaqf815t" path="res://VegetacionPlaya.blend" id="15_30p7m"]
+[ext_resource type="PackedScene" uid="uid://b8v8sw8pwaxcr" path="res://SalvavidasDelimitadores.blend" id="14_uoxt3"]
+[ext_resource type="PackedScene" uid="uid://ch4sckybto6va" path="res://VegetacionPlaya.blend" id="15_30p7m"]
 [ext_resource type="PackedScene" uid="uid://bj4l12pwu20wy" path="res://exit_dialog.tscn" id="15_uoxt3"]
-[ext_resource type="FontFile" uid="uid://ccw85tcxbfsoy" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="17_oafcm"]
-[ext_resource type="FontFile" uid="uid://canvkx00sdd8" path="res://Fonts/comforta/Comfortaa-Regular.ttf" id="18_7snaq"]
+[ext_resource type="FontFile" uid="uid://4nrqtwvetrjm" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="17_oafcm"]
+[ext_resource type="FontFile" uid="uid://dxk1shenb87p3" path="res://Fonts/comforta/Comfortaa-Regular.ttf" id="18_7snaq"]
 [ext_resource type="Script" uid="uid://btpj7peun3fpg" path="res://dialogue_box.gd" id="19_3v12d"]
 [ext_resource type="PackedScene" uid="uid://b80ysuty5a8lh" path="res://PilaLlanta.tscn" id="19_bmqie"]
 [ext_resource type="PackedScene" uid="uid://or55ry66vrvh" path="res://BolsaBasura.tscn" id="20_oafcm"]
-[ext_resource type="Texture2D" uid="uid://b4svakax6b3cg" path="res://Basura4.png" id="21_7snaq"]
+[ext_resource type="Texture2D" uid="uid://clepfp3yujplo" path="res://Basura4.png" id="21_7snaq"]
 [ext_resource type="PackedScene" uid="uid://cvp3du2f7t2ui" path="res://Llanta.tscn" id="22_3v12d"]
 [ext_resource type="PackedScene" uid="uid://bfsbp0jiqky6p" path="res://PilaLatas.tscn" id="23_15eih"]
 [ext_resource type="Script" uid="uid://mppfwxclohbd" path="res://Contador.gd" id="24_hf418"]
@@ -101,7 +101,7 @@ Tree/styles/panel = null
 font_size = 14
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource("1_m64m5")
+script = ExtResource("1_hf418")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("3_5uy85")
@@ -227,8 +227,8 @@ offset_top = 27.0
 offset_right = 662.0
 offset_bottom = 182.0
 theme = ExtResource("14_bmqie")
-theme_override_constants/outline_size = 9
 theme_override_constants/line_separation = 10
+theme_override_constants/outline_size = 9
 theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "Ahora te encuentras en la playa, rodeado de hermosas palmeras y un sol radiante, pero, necesitamos de tu ayuda para recoger la basura que se encuentra en la playa y el mar... "

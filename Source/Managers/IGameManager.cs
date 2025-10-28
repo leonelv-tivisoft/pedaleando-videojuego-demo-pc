@@ -6,6 +6,12 @@ namespace PedaleandoGame.Managers
     /// </summary>
     public interface IGameManager
     {
+        event System.Action<int, int> CountChanged;
+        
+        int CurrentCount { get; }
+        int CurrentGoal { get; }
+
         void AddTrash(int amount);
+        void Reset(int newGoal = 20);
     }
 }

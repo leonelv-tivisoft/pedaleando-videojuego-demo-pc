@@ -1,4 +1,6 @@
 # res://GameManager.gd
+# [DEPRECATED] This file is deprecated and will be removed. Use Source/Managers/GameManager.cs instead.
+# TODO: Remove this file after full migration to C#
 extends Node
 
 signal count_changed(current: int, goal: int)
