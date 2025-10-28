@@ -98,11 +98,11 @@ namespace PedaleandoGame.Entities.Player
             if (_rayCast3D.IsColliding())
             {
                 var collider = _rayCast3D.GetCollider();
-                EmitSignal(SignalName.InteractObject, collider);
+                EmitSignal("InteractObject", collider);
             }
             else
             {
-                EmitSignal(SignalName.InteractObject, null);
+                EmitSignal("InteractObject", null);
             }
 
             if (Input.IsActionJustPressed("interact") && _rayCast3D.IsColliding())

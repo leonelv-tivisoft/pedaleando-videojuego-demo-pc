@@ -1,5 +1,6 @@
 using Godot;
 using PedaleandoGame.Managers;
+using PedaleandoGame.Entities.Player; // For C# event subscription to Player signal
 
 namespace PedaleandoGame.Entities.Props
 {
@@ -36,11 +37,11 @@ namespace PedaleandoGame.Entities.Props
                 _promptLabel.Visible = false;
             }
 
-            // Conectar selección desde Player si usa señales
-            var player = GetTree().GetFirstNodeInGroup("Player");
-            if (player != null && player.HasSignal("InteractObject"))
+            // Conectar selección desde Player usando el evento C# del signal (evita problemas de nombre/args)
+            var playerNode = GetTree().GetFirstNodeInGroup("Player");
+            if (playerNode is PedaleandoGame.Entities.Player.Player player)
             {
-                player.Connect("InteractObject", new Callable(this, nameof(SetSelect)));
+                player.InteractObject += SetSelect;
             }
         }
 
@@ -93,9 +94,15 @@ namespace PedaleandoGame.Entities.Props
             }
         }
 
-        private void SetSelect(Node obj)
+        public void SetSelect(Node obj)
         {
             _selected = (this == obj);
+        }
+
+        // Exponer también en snake_case para compatibilidad con llamados GDScript (Player.gd usa "interact")
+        public void interact(Node player)
+        {
+            Interact(player);
         }
 
         public void Interact(Node player)
