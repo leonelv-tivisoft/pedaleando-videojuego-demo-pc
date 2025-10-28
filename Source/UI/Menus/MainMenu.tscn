@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://bpuylb8j8olsj"]
 
-[ext_resource type="Texture2D" uid="uid://dnoqc3vrtfvn6" path="res://Images/prueba20193.png" id="2_iwfq2"]
-[ext_resource type="FontFile" uid="uid://ccw85tcxbfsoy" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="3_qoqlk"]
-[ext_resource type="Texture2D" uid="uid://bfau0q7q4evcp" path="res://Images/Pedaleando LOGO_FINAL-01 (1).png" id="4_7r1g0"]
+[ext_resource type="Texture2D" path="res://Images/prueba20193.png" id="2_iwfq2"]
+[ext_resource type="FontFile" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="3_qoqlk"]
+[ext_resource type="Texture2D" path="res://Images/Pedaleando LOGO_FINAL-01 (1).png" id="4_7r1g0"]
 [ext_resource type="Script" path="res://Source/UI/Menus/MainMenu.cs" id="5_script"]
-[ext_resource type="Texture2D" uid="uid://ewtpfhfkhmjq" path="res://Images/Pedaleando LOGO_FINAL-01 HOVER.png" id="5_cqjrg"]
+[ext_resource type="Texture2D" path="res://Images/Pedaleando LOGO_FINAL-01 HOVER.png" id="5_cqjrg"]
 [ext_resource type="PackedScene" uid="uid://bj4l12pwu20wy" path="res://exit_dialog.tscn" id="9_fimr5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iwfq2"]
@@ -115,6 +115,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_iwfq2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_e2xy7")
 text = "JUGAR DEMO"
 flat = true
+script = ExtResource("res://Source/UI/Components/AnimatedButton.cs")
 
 [node name="HISTORIA" type="Button" parent="Menu"]
 layout_mode = 2

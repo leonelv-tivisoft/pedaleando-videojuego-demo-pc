@@ -6,12 +6,15 @@ extends CanvasLayer
 @export var prefix:      String = ""   # si quieres "x" o nada
 @export var show_with_goal: bool = true
 
+var game_manager
+
 func _ready() -> void:
 	visible = true  # o false si quieres ocultarlo hasta que empiece el juego
+	game_manager = get_node("/root/GameManager")
 	# Estado inicial
-	_update_text(GameManager.count, GameManager.goal)
+	_update_text(game_manager.get("CurrentCount"), game_manager.get("CurrentGoal"))
 	# Conecta para actualizar cuando cambie el conteo
-	GameManager.count_changed.connect(_on_count_changed)
+	game_manager.connect("CountChanged", _on_count_changed)
 
 func _on_count_changed(current: int, goal: int) -> void:
 	_update_text(current, goal)

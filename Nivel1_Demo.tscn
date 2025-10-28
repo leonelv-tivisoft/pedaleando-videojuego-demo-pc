@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://clepfp3yujplo" path="res://Basura4.png" id="21_7snaq"]
 [ext_resource type="PackedScene" uid="uid://cvp3du2f7t2ui" path="res://Llanta.tscn" id="22_3v12d"]
 [ext_resource type="PackedScene" uid="uid://bfsbp0jiqky6p" path="res://PilaLatas.tscn" id="23_15eih"]
-[ext_resource type="Script" uid="uid://mppfwxclohbd" path="res://Contador.gd" id="24_hf418"]
+[ext_resource type="Script" path="res://Source/UI/Components/Counter.cs" id="24_hf418"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ioqx1"]
 dof_blur_far_distance = 28.0

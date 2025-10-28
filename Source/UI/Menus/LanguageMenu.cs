@@ -8,7 +8,7 @@ namespace PedaleandoGame.UI.Menus
     {
         private Button SpanishButton;
         private Button EnglishButton;
-        [Export] private string MainMenuScene { get; set; } = "res://Source/UI/Menus/MainMenu.tscn";
+        [Export] private string MainMenuScene { get; set; } = "res://MainMenu.tscn";
 
         public override void _Ready()
         {

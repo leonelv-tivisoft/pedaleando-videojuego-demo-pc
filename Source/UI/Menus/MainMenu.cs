@@ -13,7 +13,7 @@ namespace PedaleandoGame.UI.Menus
 
         private void OnJugarPressed()
         {
-            GetTree().ChangeSceneToFile("res://Source/Levels/Level1/Level1Demo.tscn");
+            GetTree().ChangeSceneToFile("res://Nivel1_Demo.tscn");
         }
 
         private void OnHistoriaPressed()
