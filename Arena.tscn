@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bgsogx8olns7w"]
+[gd_scene load_steps=12 format=4 uid="uid://bgsogx8olns7w"]
 
 [ext_resource type="PackedScene" uid="uid://dwg0vq0rcdn5w" path="res://ArenaModificada/ArenaModificado.blend" id="1_uj4qe"]
 [ext_resource type="Texture2D" uid="uid://krm5gi3uu5yq" path="res://ArenaModificada/textures/ArenaModificado_diffuse.png" id="2_jycnn"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dwa0rwqr4bm15" path="res://PiedrasArena.tscn" id="4_uj4qe"]
 [ext_resource type="ArrayMesh" uid="uid://bijs3mm7p7xa5" path="res://new_array_mesh.tres" id="6_8qske"]
 [ext_resource type="PackedScene" uid="uid://dllt42ms5usmu" path="res://Models/Palmera_01/Palmera_01.glb" id="6_ml6qp"]
-[ext_resource type="PackedScene" uid="uid://dsqwqu672imda" path="res://Trash_Bag_01.blend" id="7_8qske"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uj4qe"]
 resource_name = "Procedural Sand"
@@ -344,6 +343,3 @@ shape = SubResource("ConcavePolygonShape3D_5wsva")
 
 [node name="PiedrasArena2" parent="." index="3" instance=ExtResource("4_uj4qe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.464, 0.118, -4.649)
-
-[node name="Trash_Bag_01" parent="." index="4" instance=ExtResource("7_8qske")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.69, 0)

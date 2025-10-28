@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://1jyn7n55pj5a"]
+[gd_scene load_steps=36 format=3 uid="uid://1jyn7n55pj5a"]
 
 [ext_resource type="Script" uid="uid://d0htwykjktqp6" path="res://nivel_1_demo.gd" id="1_m64m5"]
 [ext_resource type="Environment" uid="uid://b5t3imwgoregf" path="res://Images/Nivel1_Demo.tres" id="3_5uy85"]
@@ -21,6 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://b80ysuty5a8lh" path="res://PilaLlanta.tscn" id="19_bmqie"]
 [ext_resource type="PackedScene" uid="uid://or55ry66vrvh" path="res://BolsaBasura.tscn" id="20_oafcm"]
 [ext_resource type="Texture2D" uid="uid://b4svakax6b3cg" path="res://Basura4.png" id="21_7snaq"]
+[ext_resource type="PackedScene" uid="uid://cvp3du2f7t2ui" path="res://Llanta.tscn" id="22_3v12d"]
+[ext_resource type="PackedScene" uid="uid://bfsbp0jiqky6p" path="res://PilaLatas.tscn" id="23_15eih"]
+[ext_resource type="Script" uid="uid://mppfwxclohbd" path="res://Contador.gd" id="24_hf418"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ioqx1"]
 dof_blur_far_distance = 28.0
@@ -127,7 +130,7 @@ transform = Transform3D(-9.04826e-08, 0, 1.105, 0, 8.204, 0, -2.07, 0, -4.83011e
 script = ExtResource("6_f8u1r")
 
 [node name="Agua2" parent="." instance=ExtResource("7_uoxt3")]
-transform = Transform3D(-9.04826e-08, 0, 1.105, 0, 8.204, 0, -2.07, 0, -4.83011e-08, -103.396, -18.8639, 2.261)
+transform = Transform3D(-9.04826e-08, 0, 1.105, 0, 8.204, 0, -2.07, 0, -4.83011e-08, -92.5506, -26.8626, 2.261)
 mesh = null
 script = ExtResource("6_f8u1r")
 
@@ -136,7 +139,7 @@ transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, -0.5,
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Agua2/Area3D"]
-transform = Transform3D(1, 0, 2.49578e-12, 0, 1, 0, -1.02389e-11, 0, 1, 0.240334, 0.506638, -3.76417)
+transform = Transform3D(1, 0, 2.49756e-12, 0, 1, 0, -1.02389e-11, 0, 1, 0.240334, 1.33858, -3.76418)
 shape = SubResource("BoxShape3D_bf6rf")
 debug_color = Color(3.65794e-06, 0.740473, 0.864301, 1)
 
@@ -148,18 +151,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.4629, 4.27079, -0.184942)
 
 [node name="Assets_playeros" parent="." instance=ExtResource("12_6o6jf")]
 transform = Transform3D(1.92, 0, 0, 0, 1.92, 0, 0, 0, 1.92, 11.7343, 4.92199, 9.51579)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
-script = ExtResource("13_f8u1r")
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
 
 [node name="IntroCamera" type="Camera3D" parent="."]
 transform = Transform3D(0.0157073, -0.0523295, 0.998506, 0, 0.99863, 0.052336, -0.999877, -0.000822056, 0.0156858, 61.3668, 37.3643, 1.48896)
@@ -181,6 +172,21 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -117.6
 
 [node name="VegetacionPlaya" parent="." instance=ExtResource("15_30p7m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.613, 12.2272, 3.58155)
+
+[node name="PilaLlanta" parent="." instance=ExtResource("19_bmqie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5194, 5.76927, -13.0195)
+
+[node name="BolsaBasura" parent="." instance=ExtResource("20_oafcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.0539, 4.79268, 11.1242)
+
+[node name="Llanta" parent="." instance=ExtResource("22_3v12d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.8704, 5.31292, -18.7753)
+
+[node name="PilaLatas" parent="." instance=ExtResource("23_15eih")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.7035, 5.16688, -31.2963)
+
+[node name="PilaLatas2" parent="PilaLatas" instance=ExtResource("23_15eih")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6855, 0.0473905, 33.9408)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
@@ -236,13 +242,22 @@ offset_bottom = 127.0
 text = "\"Pulsa ESPACIO\""
 label_settings = SubResource("LabelSettings_we6oh")
 
-[node name="Node3D" parent="." instance=ExtResource("19_bmqie")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5194, 5.37292, -13.0195)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("13_f8u1r")
 
-[node name="Node3D2" parent="." instance=ExtResource("20_oafcm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.0539, 4.79268, 11.1242)
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
-[node name="Contador" type="CanvasLayer" parent="."]
+[node name="Contador" type="CanvasLayer" parent="." node_paths=PackedStringArray("label_count", "label_goal")]
+script = ExtResource("24_hf418")
+label_count = NodePath("ContadorBasuras")
+label_goal = NodePath("Label")
 
 [node name="TextureRect" type="TextureRect" parent="Contador"]
 anchors_preset = 3
@@ -264,9 +279,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -160.0
+offset_left = -105.0
 offset_top = -86.0
-offset_right = -27.0
+offset_right = 104.0
 offset_bottom = -25.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -277,7 +292,7 @@ theme_override_constants/shadow_offset_y = 5
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("17_oafcm")
 theme_override_font_sizes/font_size = 40
-text = "      /20"
+text = " /20"
 
 [node name="ContadorBasuras" type="Label" parent="Contador"]
 anchors_preset = 3

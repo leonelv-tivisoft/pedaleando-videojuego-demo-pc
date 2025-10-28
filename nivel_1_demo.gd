@@ -9,7 +9,7 @@ extends Node3D
 @onready var player: CharacterBody3D = $Player
 
 # ⬇️ Contenedor del HUD (logo + contador)
-@onready var hud_counter: CanvasLayer = $"Contador"   # usa %Contador si lo marcas como Unique Name
+@onready var hud_counter: CanvasLayer = $Contador  # usa %Contador si lo marcas como Unique Name
 
 var _intro_done := false
 var _dialog_done := false
@@ -34,11 +34,13 @@ func _ready() -> void:
 	var lines: Array[Dictionary] = [
 		{"name":"SALUDOS",  "text":"¡Bienvenido a la costa!"},
 		{"name":"TUTORIAL", "text":"Usa WASD para moverte y ESPACIO para saltar."},
-		{"name":"TUTORIAL", "text":"Necesitamos tu ayuda para recoger la basura en la playa y el mar..."}
+		{"name":"TUTORIAL", "text":"Ahora te encuentras en la playa, rodeado de hermosas palmeras y un sol radiante, pero, necesitamos de tu ayuda para recoger la basura que se encuentra en la playa y el mar... "}
 	]
 	dialogue.start_dialogue(lines, func():
 		_dialog_done = true
 		_try_start_game()
+		if not (_intro_done and _dialog_done):
+			return
 	)
 
 func start_intro() -> void:

@@ -212,6 +212,7 @@ horizontal_alignment = 1
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="ExitDialog" parent="." instance=ExtResource("9_fimr5")]
+visible = false
 
 [connection signal="pressed" from="Menu/JUGAR" to="." method="_on_jugar_pressed"]
 [connection signal="pressed" from="Menu/SALIR" to="." method="_on_salir_pressed"]

@@ -76,7 +76,7 @@ points = PackedVector3Array(-0.320103, 0.01138, -0.143469, 0.308594, 0.0764042, 
 [node name="Node3D" type="Node3D"]
 
 [node name="LlantaVieja_005" type="StaticBody3D" parent="."]
-transform = Transform3D(3.57331, 0, 0, 0, 3.5733, 0, 0, 0, 3.57331, -0.0268822, 0.875034, -0.00669479)
+transform = Transform3D(3.57331, 0, 0, 0, 3.5733, 0, 0, 0, 3.57331, -0.027, 0, -0.007)
 script = ExtResource("1_tfuw7")
 
 [node name="old_tyre_005" type="MeshInstance3D" parent="LlantaVieja_005"]

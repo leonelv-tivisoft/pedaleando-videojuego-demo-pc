@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://or55ry66vrvh"]
+[gd_scene load_steps=9 format=4 uid="uid://or55ry66vrvh"]
 
 [ext_resource type="Script" uid="uid://dqx2iibh7chi6" path="res://bolsa_basura.gd" id="1_man5g"]
+[ext_resource type="FontFile" uid="uid://ccw85tcxbfsoy" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="2_s7fra"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_foh1a"]
 resource_name = "Trashbag"
@@ -74,11 +75,11 @@ points = PackedVector3Array(0.0935615, 0.0797205, 0.0954235, 0.0928303, 0.203103
 
 [node name="Node3D" type="Node3D"]
 
-[node name="BolsaBasura2" type="StaticBody3D" parent="."]
-transform = Transform3D(3.5733, 0, 0, 0, 3.5733, 0, 0, 0, 3.5733, 0.107478, -0.445723, -2.89264)
+[node name="BolsaBasura" type="StaticBody3D" parent="."]
+transform = Transform3D(3.5733, 0, 0, 0, 3.5733, 0, 0, 0, 3.5733, 0, 0, 0)
 script = ExtResource("1_man5g")
 
-[node name="Trashbag - Full_001" type="MeshInstance3D" parent="BolsaBasura2"]
+[node name="Trashbag - Full_001" type="MeshInstance3D" parent="BolsaBasura"]
 mesh = SubResource("ArrayMesh_s7fra")
 skeleton = NodePath("")
 metadata/extras = {
@@ -320,9 +321,17 @@ metadata/extras = {
 }
 }
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="BolsaBasura2/Trashbag - Full_001"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BolsaBasura/Trashbag - Full_001"]
 mesh = SubResource("ArrayMesh_muf0w")
 surface_material_override/0 = SubResource("StandardMaterial3D_lf41e")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BolsaBasura2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BolsaBasura"]
 shape = SubResource("ConvexPolygonShape3D_lf41e")
+
+[node name="PromptLabel" type="Label3D" parent="BolsaBasura"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.83755, 0)
+pixel_size = 0.003
+billboard = 2
+text = "\"Presiona E\""
+font = ExtResource("2_s7fra")
+font_size = 30

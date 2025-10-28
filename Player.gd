@@ -76,7 +76,7 @@ func _input(event) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			
 
-func _process(delta): 
+func _process(_delta): 
 	if ray_cast_3d.is_colliding():
 		var collider = ray_cast_3d.get_collider()
 		interact_object.emit(collider)
