@@ -14,7 +14,7 @@ namespace PedaleandoGame.Levels
 	/// </summary>
 	public partial class Level1Demo : Node3D
 	{
-		[Export] private float IntroDuration { get; set; } = 3.0f;
+		[Export] public float IntroDuration { get; set; } = 3.0f;
 
 		private Camera3D _introCamera;
 		private Camera3D _playerCamera;
