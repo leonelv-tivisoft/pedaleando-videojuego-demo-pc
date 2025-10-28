@@ -68,10 +68,13 @@ namespace PedaleandoGame.Entities.Player
         {
             if (@event is InputEventMouseMotion mouseMotion && Input.MouseMode == Input.MouseModeEnum.Captured)
             {
+                // Rotación horizontal del jugador completo
                 RotateY(-mouseMotion.Relative.X * Sensibilidad);
+                
+                // Rotación vertical de la cámara (pivot)
                 _rotationX -= mouseMotion.Relative.Y * Sensibilidad;
                 _rotationX = Mathf.Clamp(_rotationX, Mathf.DegToRad(-80), Mathf.DegToRad(80));
-                _pivot.RotationDegrees = new Vector3(_rotationX, 0, 0);
+                _pivot.Rotation = new Vector3(_rotationX, 0, 0);
             }
 
             if (@event.IsActionPressed("ui_cancel"))
