@@ -11,7 +11,11 @@ namespace PedaleandoGame.Managers
         private int _count = 0;
         private int _goal = 20;
 
+        // C# event for C# subscribers
         public event System.Action<int, int> CountChanged;
+
+        // Godot signal for GDScript and editor connections (backwards compatible name)
+        [Signal] public delegate void count_changedEventHandler(int current, int goal);
 
         public int CurrentCount => _count;
         public int CurrentGoal => _goal;
@@ -20,6 +24,7 @@ namespace PedaleandoGame.Managers
         {
             // Emit initial state in case something is already listening
             CountChanged?.Invoke(_count, _goal);
+            EmitSignal("count_changed", _count, _goal);
         }
 
         /// <summary>
@@ -31,6 +36,7 @@ namespace PedaleandoGame.Managers
             _count = 0;
             _goal = newGoal;
             CountChanged?.Invoke(_count, _goal);
+            EmitSignal("count_changed", _count, _goal);
         }
 
         /// <summary>
@@ -40,7 +46,14 @@ namespace PedaleandoGame.Managers
         public void AddTrash(int amount = 1)
         {
             _count += amount;
+            // Log for debugging/telemetry
+            GD.Print($"[GameManager] Trash collected: {_count}/{_goal}");
             CountChanged?.Invoke(_count, _goal);
+            EmitSignal("count_changed", _count, _goal);
         }
+
+        // Backwards compatible methods for GDScript callers (snake_case)
+        public void add_trash(int amount = 1) => AddTrash(amount);
+        public void reset(int new_goal = 20) => Reset(new_goal);
     }
 }
