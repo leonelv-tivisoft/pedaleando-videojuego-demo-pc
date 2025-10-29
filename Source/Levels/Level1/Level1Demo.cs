@@ -113,22 +113,30 @@ namespace PedaleandoGame.Levels
 		private void StartTutorialDialogue()
 		{
 			// Use the existing GDScript DialogueBox API: start_dialogue(Array[Dictionary], Callable on_finish)
+			// Pull localized strings from LocalizationManager (autoload)
+			var loc = LocalizationManager.Instance;
+			string titleGreeting = loc != null ? loc.GetText("DIALOG_TITLE_GREETING") : "SALUDOS";
+			string titleTutorial = loc != null ? loc.GetText("DIALOG_TITLE_TUTORIAL") : "TUTORIAL";
+			string msgWelcome = loc != null ? loc.GetText("WELCOME_MESSAGE") : "¡Bienvenido a la costa!";
+			string msgMove = loc != null ? loc.GetText("TUTORIAL_MOVE") : "Usa WASD para moverte y ESPACIO para saltar.";
+			string msgObjective = loc != null ? loc.GetText("TUTORIAL_OBJECTIVE") : "Ahora te encuentras en la playa, rodeado de hermosas palmeras y un sol radiante, pero, necesitamos de tu ayuda para recoger la basura que se encuentra en la playa y el mar... ";
+
 			var lines = new Godot.Collections.Array<Godot.Collections.Dictionary>
 			{
 				new Godot.Collections.Dictionary
 				{
-					{"name", "SALUDOS"},
-					{"text", "¡Bienvenido a la costa!"}
+					{"name", titleGreeting},
+					{"text", msgWelcome}
 				},
 				new Godot.Collections.Dictionary
 				{
-					{"name", "TUTORIAL"},
-					{"text", "Usa WASD para moverte y ESPACIO para saltar."}
+					{"name", titleTutorial},
+					{"text", msgMove}
 				},
 				new Godot.Collections.Dictionary
 				{
-					{"name", "TUTORIAL"},
-					{"text", "Ahora te encuentras en la playa, rodeado de hermosas palmeras y un sol radiante, pero, necesitamos de tu ayuda para recoger la basura que se encuentra en la playa y el mar... "}
+					{"name", titleTutorial},
+					{"text", msgObjective}
 				}
 			};
 

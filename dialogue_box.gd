@@ -30,6 +30,13 @@ func _ready() -> void:
 	text.text = ""
 	hint.visible = false
 
+	# Localizar hint inicial si aplica
+	var loc = get_node_or_null("/root/LocalizationManager")
+	if loc and loc.has_method("GetText"):
+		_hint_set_text(loc.GetText("UI_PRESS_SPACE"))
+		# Suscribirse a cambios de idioma (C# signal exposed to GDScript)
+		loc.connect("LanguageChanged", Callable(self, "_on_language_changed"))
+
 func start_dialogue(lines: Array[Dictionary], on_finish: Callable = Callable()) -> void:
 	_lines = lines
 	_idx = 0
@@ -61,6 +68,10 @@ func _show_line() -> void:
 	tw.tween_callback(func():
 		_typing = false
 		hint.visible = true
+		# Actualizar hint con texto localizado
+		var loc = get_node_or_null("/root/LocalizationManager")
+		if loc and loc.has_method("GetText"):
+			_hint_set_text(loc.GetText("UI_PRESS_SPACE"))
 	)
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -90,3 +101,13 @@ func _finish() -> void:
 	hint.visible = false
 	if _on_finish.is_valid():
 		_on_finish.call()
+
+func _hint_set_text(value: String) -> void:
+	if hint:
+		hint.text = value
+
+func _on_language_changed(new_lang: String) -> void:
+	# Rehidratar hint si está visible
+	var loc = get_node_or_null("/root/LocalizationManager")
+	if loc and loc.has_method("GetText") and hint and hint.visible:
+		_hint_set_text(loc.GetText("UI_PRESS_SPACE"))

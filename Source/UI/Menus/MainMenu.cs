@@ -1,14 +1,47 @@
 using Godot;
+using PedaleandoGame.Core.Localization;
 
 namespace PedaleandoGame.UI.Menus
 {
     public partial class MainMenu : Control
     {
         [Export] private AudioStreamPlayer AudioPlayer { get; set; }
+        private Button _btnPlay;
+        private Button _btnOptions;
+        private Button _btnExit;
 
         public override void _Ready()
         {
-            // Initialize any audio or other resources here
+            _btnPlay = GetNodeOrNull<Button>("Menu/JUGAR");
+            _btnOptions = GetNodeOrNull<Button>("Menu/HISTORIA");
+            _btnExit = GetNodeOrNull<Button>("Menu/SALIR");
+
+            ApplyLocalizedTexts();
+
+            // Update if language changes while menu is open
+            var loc = LocalizationManager.Instance;
+            if (loc != null)
+            {
+                loc.LanguageChanged += OnLanguageChanged;
+            }
+        }
+
+        private void OnLanguageChanged(string newLanguage)
+        {
+            ApplyLocalizedTexts();
+        }
+
+        private void ApplyLocalizedTexts()
+        {
+            var loc = LocalizationManager.Instance;
+            if (loc == null) return;
+
+            if (_btnPlay != null)
+                _btnPlay.Text = loc.GetText("MENU_PLAY_DEMO");
+            if (_btnOptions != null)
+                _btnOptions.Text = loc.GetText("MENU_OPTIONS");
+            if (_btnExit != null)
+                _btnExit.Text = loc.GetText("MENU_EXIT");
         }
 
         private void OnJugarPressed()
@@ -23,10 +56,18 @@ namespace PedaleandoGame.UI.Menus
 
         private void OnSalirPressed()
         {
-            var dialog = GetNode<Control>("ExitDialog");
-            if (dialog != null)
+            var cd = GetNodeOrNull<ConfirmationDialog>("ExitDialog");
+            if (cd != null)
             {
-                dialog.Visible = true;
+                var loc = LocalizationManager.Instance;
+                if (loc != null)
+                {
+                    cd.Title = loc.GetText("EXIT_TITLE");
+                    cd.DialogText = loc.GetText("EXIT_CONFIRM");
+                    cd.GetOkButton().Text = loc.GetText("EXIT_OK");
+                    cd.GetCancelButton().Text = loc.GetText("EXIT_CANCEL");
+                }
+                cd.Visible = true;
             }
         }
     }

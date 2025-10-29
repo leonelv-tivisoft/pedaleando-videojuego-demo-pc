@@ -3,5 +3,14 @@
     "TUTORIAL_MOVE": "Usa WASD para moverte y ESPACIO para saltar.",
     "TUTORIAL_OBJECTIVE": "Ahora te encuentras en la playa, rodeado de hermosas palmeras y un sol radiante, pero, necesitamos de tu ayuda para recoger la basura que se encuentra en la playa y el mar...",
     "DIALOG_TITLE_GREETING": "SALUDOS",
-    "DIALOG_TITLE_TUTORIAL": "TUTORIAL"
+    "DIALOG_TITLE_TUTORIAL": "TUTORIAL",
+    "UI_CONTINUE": "CONTINUAR",
+    "UI_PRESS_SPACE": "Pulsa ESPACIO",
+    "MENU_PLAY_DEMO": "JUGAR DEMO",
+    "MENU_OPTIONS": "OPCIONES",
+    "MENU_EXIT": "SALIR",
+    "EXIT_TITLE": "Espera un poco...",
+    "EXIT_OK": "Sí",
+    "EXIT_CANCEL": "No!",
+    "EXIT_CONFIRM": "¿Estás seguro que quieres salir?"
 }

@@ -15,7 +15,24 @@ namespace PedaleandoGame.UI.Screens
 			_skipTimer = GetNodeOrNull<Timer>("SkipTimer");
 
 			if (_skipButton != null)
+			{
+				// Localizar el texto del botón
+				var loc = PedaleandoGame.Core.Localization.LocalizationManager.Instance;
+				if (loc != null)
+				{
+					_skipButton.Text = loc.GetText("UI_CONTINUE");
+					// Actualizar si cambia el idioma mientras está en esta escena
+					loc.LanguageChanged += OnLanguageChanged;
+				}
 				_skipButton.Hide(); // asegurarse de que no aparezca al inicio
+			}
+		}
+
+		private void OnLanguageChanged(string lang)
+		{
+			if (_skipButton == null) return;
+			var loc = PedaleandoGame.Core.Localization.LocalizationManager.Instance;
+			_skipButton.Text = loc != null ? loc.GetText("UI_CONTINUE") : _skipButton.Text;
 		}
 
 		private void OnSkipTimerTimeout()
