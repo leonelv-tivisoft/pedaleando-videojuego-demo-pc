@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=4 uid="uid://bfsbp0jiqky6p"]
 
-[ext_resource type="Script" uid="uid://t4mnk6g1b2ul" path="res://PilaLatas.gd" id="1_apwer"]
+[ext_resource type="Script" uid="uid://b2fgxnpjs20fb" path="res://Source/Entities/Props/CanStack.cs" id="1_apwer"]
 [ext_resource type="Texture2D" uid="uid://ctin2rlxr2boa" path="res://textures/Tin Can_basecolor.jpeg" id="1_hiw4o"]
 [ext_resource type="Texture2D" uid="uid://bthl8fef0gj3j" path="res://textures/Tin Can_roughness.jpeg" id="2_60h7m"]
 [ext_resource type="FontFile" uid="uid://4nrqtwvetrjm" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="4_oju3q"]
