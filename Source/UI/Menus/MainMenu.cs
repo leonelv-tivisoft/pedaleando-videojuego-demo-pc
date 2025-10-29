@@ -75,7 +75,8 @@ namespace PedaleandoGame.UI.Menus
 					cd.GetOkButton().Text = loc.GetText("EXIT_OK");
 					cd.GetCancelButton().Text = loc.GetText("EXIT_CANCEL");
 				}
-				cd.Visible = true;
+				// Show dialog centered to ensure it appears above menu
+				cd.PopupCentered();
 			}
 		}
 	}
