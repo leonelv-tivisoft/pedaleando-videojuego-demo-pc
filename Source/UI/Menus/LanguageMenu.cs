@@ -8,7 +8,8 @@ namespace PedaleandoGame.UI.Menus
     {
         private Button SpanishButton;
         private Button EnglishButton;
-        [Export] private string MainMenuScene { get; set; } = "res://MainMenu.tscn";
+    // Después de seleccionar idioma, queremos mostrar el Splash (video + omitir)
+    [Export] private string NextScene { get; set; } = "res://control.tscn";
 
         public override void _Ready()
         {
@@ -25,7 +26,7 @@ namespace PedaleandoGame.UI.Menus
         private void OnLanguageSelected(string languageCode)
         {
             LocalizationManager.Instance.ChangeLanguage(languageCode);
-            GetTree().ChangeSceneToFile(MainMenuScene);
+            GetTree().ChangeSceneToFile(NextScene);
         }
     }
 }
