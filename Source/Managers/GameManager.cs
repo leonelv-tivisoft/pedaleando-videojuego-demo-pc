@@ -6,7 +6,7 @@ namespace PedaleandoGame.Managers
 	/// Manages the game state including trash collection and goals
 	/// Follows Single Responsibility Principle by focusing on core game state
 	/// </summary>
-	public partial class GameManager : Node, IGameManager
+	public partial class GameManager : Node
 	{
 		private int _count = 0;
 		private int _goal = 20;

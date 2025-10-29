@@ -5,7 +5,7 @@ namespace PedaleandoGame.UI
 {
 	public partial class Counter : Label
 	{
-		private IGameManager _gameManager;
+		private GameManager _gameManager;
 
 		public override void _EnterTree()
 		{

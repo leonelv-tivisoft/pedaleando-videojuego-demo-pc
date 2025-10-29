@@ -73,7 +73,7 @@ func interact(_player: Node) -> void:
 		pickup_sfx.play()
 
 	# Aumentar contador
-	if typeof(GameManager) != TYPE_NIL and GameManager.has_method("add_trash"):
-		GameManager.add_trash(pickup_amount)
+	if typeof(IGameManager) != TYPE_NIL and IGameManager.has_method("add_trash"):
+		IGameManager.add_trash(pickup_amount)
 
 	queue_free()

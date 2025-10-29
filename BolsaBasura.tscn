@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://or55ry66vrvh"]
 
-[ext_resource type="Script" uid="uid://dbrtdhcdtoh80" path="res://Source/Gameplay/Interactables/TrashBag.cs" id="1_s7fra"]
+[ext_resource type="Script" uid="uid://ce4ly1s8r88tu" path="res://Source/Entities/Props/BigTrashBag.cs" id="1_s7fra"]
 [ext_resource type="FontFile" uid="uid://4nrqtwvetrjm" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="2_s7fra"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_foh1a"]

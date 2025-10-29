@@ -128,7 +128,7 @@ namespace PedaleandoGame.Gameplay.Interactables
 		{
 			if (!Engine.IsEditorHint())
 			{
-				var gameManager = GetNode<IGameManager>("/root/GameManager");
+				var gameManager = GetNode<GameManager>("/root/GameManager");
 				gameManager?.AddTrash(Properties.PickupAmount);
 			}
 		}

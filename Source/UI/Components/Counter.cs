@@ -11,7 +11,7 @@ namespace PedaleandoGame.UI.Components
 		[Export] public bool ShowWithGoal { get; set; } = true;
 		[Export] public NodePath GameManagerPath { get; set; } // optional injection
 
-		private IGameManager _gameManager;
+		private GameManager _gameManager;
 		private Node _gameManagerNodeFallback; // if not C#, fallback to GDScript autoload
 
 		public override void _Ready()
@@ -52,7 +52,7 @@ namespace PedaleandoGame.UI.Components
 			if (GameManagerPath != null && !GameManagerPath.IsEmpty)
 			{
 				var gm = GetNodeOrNull(GameManagerPath);
-				_gameManager = gm as IGameManager;
+				_gameManager = gm as GameManager;
 				if (_gameManager == null)
 				{
 					_gameManagerNodeFallback = gm;
@@ -61,7 +61,7 @@ namespace PedaleandoGame.UI.Components
 			else
 			{
 				var gm = GetNodeOrNull("/root/GameManager");
-				_gameManager = gm as IGameManager;
+				_gameManager = gm as GameManager;
 				if (_gameManager == null)
 				{
 					_gameManagerNodeFallback = gm;
