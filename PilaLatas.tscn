@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=4 uid="uid://bfsbp0jiqky6p"]
 
-[ext_resource type="Script" uid="uid://t4mnk6g1b2ul" path="res://PilaLatas.gd" id="1_apwer"]
-[ext_resource type="Texture2D" uid="uid://dr56rogul71a1" path="res://textures/Tin Can_basecolor.jpeg" id="1_hiw4o"]
-[ext_resource type="Texture2D" uid="uid://cuehabpqws0fi" path="res://textures/Tin Can_roughness.jpeg" id="2_60h7m"]
-[ext_resource type="FontFile" uid="uid://ccw85tcxbfsoy" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="4_oju3q"]
+[ext_resource type="Script" uid="uid://b2fgxnpjs20fb" path="res://Source/Entities/Props/CanStack.cs" id="1_apwer"]
+[ext_resource type="Texture2D" uid="uid://ctin2rlxr2boa" path="res://textures/Tin Can_basecolor.jpeg" id="1_hiw4o"]
+[ext_resource type="Texture2D" uid="uid://bthl8fef0gj3j" path="res://textures/Tin Can_roughness.jpeg" id="2_60h7m"]
+[ext_resource type="FontFile" uid="uid://4nrqtwvetrjm" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="4_oju3q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3fx1"]
 resource_name = "Tin Can.001"
@@ -203,7 +203,7 @@ metadata/extras = {
 "fileThumbnail": "",
 "fileThumbnailLarge": "",
 "fileType": "blend",
-"fileUploadSize": 2.24062e+07,
+"fileUploadSize": 22406200.0,
 "filename": "assets/9d4e051f2fde4be69538bc39baeab4a0/files/blend_7bd7ee4d-7351-41f6-ae92-413b8dece06b.blend",
 "modified": "2022-05-17T09:51:30.500539+02:00",
 "resolution": 0.0,
@@ -229,7 +229,7 @@ metadata/extras = {
 "fileThumbnail": "",
 "fileThumbnailLarge": "",
 "fileType": "resolution_1K",
-"fileUploadSize": 1.65927e+06,
+"fileUploadSize": 1659270.0,
 "filename": "assets/9d4e051f2fde4be69538bc39baeab4a0/files/resolution_1K_0a05ca5e-5a74-4b6c-9c10-20c8b1c88359.blend",
 "modified": "2022-06-28T20:46:22.488263+02:00",
 "resolution": 0.0,
@@ -242,7 +242,7 @@ metadata/extras = {
 "fileThumbnail": "",
 "fileThumbnailLarge": "",
 "fileType": "resolution_2K",
-"fileUploadSize": 5.9427e+06,
+"fileUploadSize": 5942700.0,
 "file_name": "D:\\Godot\\nuevo-proyecto-de-juego\\assets\\models\\crashed-tin-can_9d4e051f-2fde-4be6-9538-bc39baeab4a0\\crashed-tin-can_2K_c74a035e-796b-410c-b8a9-2f02f3667a40.blend",
 "filename": "assets/9d4e051f2fde4be69538bc39baeab4a0/files/resolution_2K_c74a035e-796b-410c-b8a9-2f02f3667a40.blend",
 "modified": "2022-06-28T20:46:19.919950+02:00",
@@ -337,7 +337,7 @@ metadata/extras = {
 "url": "https://www.blenderkit.com/api/v1/assets/9d4e051f-2fde-4be6-9538-bc39baeab4a0/",
 "verificationStatus": "validated",
 "versionNumber": 1.0,
-"webpGeneratedTimestamp": 1.69581e+09
+"webpGeneratedTimestamp": 1695810000.0
 },
 "blenderkit": {
 "asset_base_id": "52190e02-6ae3-4ed8-b92e-8cb0caa0edbf",

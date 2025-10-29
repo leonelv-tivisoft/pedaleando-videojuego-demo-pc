@@ -1,6 +1,6 @@
 [gd_resource type="ArrayMesh" load_steps=5 format=4 uid="uid://bijs3mm7p7xa5"]
 
-[ext_resource type="Texture2D" uid="uid://p3ha1ts03tdq" path="res://Models/DuoPalmera/DuoPalmera_DuoPalmeras_Difusse.png" id="1_boxtw"]
+[ext_resource type="Texture2D" uid="uid://35jyso8et1ch" path="res://Models/DuoPalmera/DuoPalmera_DuoPalmeras_Difusse.png" id="1_boxtw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g8jxl"]
 resource_name = "Madera"

@@ -1,11 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://tw4nbxw3q5e4"]
 
 [ext_resource type="VideoStream" uid="uid://bf6esb3cl0axu" path="res://SplashVideoScreen.ogv" id="1_0fbet"]
-[ext_resource type="Script" uid="uid://mk5c0am3l5g0" path="res://SplashScreen.gd" id="1_62e2m"]
-[ext_resource type="FontFile" uid="uid://ccw85tcxbfsoy" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="3_qtu10"]
+[ext_resource type="Script" uid="uid://boqjle2bl2nfj" path="res://Source/UI/Screens/SplashScreen.cs" id="1_ee4bf"]
+[ext_resource type="FontFile" uid="uid://4nrqtwvetrjm" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="3_qtu10"]
 [ext_resource type="Script" uid="uid://df8jiv44dynv1" path="res://omitir.gd" id="4_ee4bf"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ee4bf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbped"]
 bg_color = Color(0, 0.286275, 0.392157, 1)
@@ -35,6 +33,8 @@ shadow_color = Color(0, 0, 0, 0.827451)
 shadow_size = 3
 shadow_offset = Vector2(3.615, 3.825)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ee4bf"]
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -44,7 +44,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_62e2m")
+script = ExtResource("1_ee4bf")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 1
@@ -72,10 +72,10 @@ offset_bottom = -26.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_qtu10")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ee4bf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_kbped")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_qtu10")
 theme_override_styles/normal = SubResource("StyleBoxFlat_kbped")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qtu10")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kbped")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ee4bf")
 text = "CONTINUAR"
 script = ExtResource("4_ee4bf")
 
