@@ -3,8 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using PedaleandoGame.Core.Localization;
-using PedaleandoGame.UI.Dialogue;
-using PedaleandoGame.Core.Dialogue;
+// using PedaleandoGame.UI.Dialogue; // We'll interop with the existing GDScript DialogueBox
+// using PedaleandoGame.Core.Dialogue; // Not needed when using GDScript dialogue dictionaries
 
 namespace PedaleandoGame.Levels
 {
@@ -19,12 +19,13 @@ namespace PedaleandoGame.Levels
 		private Camera3D _introCamera;
 		private Camera3D _playerCamera;
 		private MeshInstance3D _playerMesh;
-		private DialogueBox _dialogueBox;
+		private Node _dialogueBox; // GDScript DialogueBox (res://dialogue_box.gd)
 		private CharacterBody3D _player;
 		private CanvasLayer _hudCounter;
 
 		private bool _introCompleted;
 		private bool _dialogueCompleted;
+		private bool _dialogueStarted;
 
 		public override void _Ready()
 		{
@@ -40,7 +41,7 @@ namespace PedaleandoGame.Levels
 			_introCamera = GetNode<Camera3D>("IntroCamera");
 			_playerCamera = GetNode<Camera3D>("Player/Pivot/PlayerCamera");
 			_playerMesh = GetNode<MeshInstance3D>("Player/MeshInstance3D");
-			_dialogueBox = GetNode<DialogueBox>("CanvasLayer2/DialogueBox");
+			_dialogueBox = GetNode("CanvasLayer2/DialogueBox");
 			_player = GetNode<CharacterBody3D>("Player");
 			_hudCounter = GetNode<CanvasLayer>("Contador");
 		}
@@ -80,8 +81,8 @@ namespace PedaleandoGame.Levels
 
 		private void StartIntroSequence()
 		{
+			// Primero la animación de cámara; los diálogos comenzarán DESPUÉS
 			StartIntroAnimation();
-			StartTutorialDialogue();
 		}
 
 		private void StartIntroAnimation()
@@ -111,26 +112,50 @@ namespace PedaleandoGame.Levels
 
 		private void StartTutorialDialogue()
 		{
-			var dialogueLines = new[]
+			// Use the existing GDScript DialogueBox API: start_dialogue(Array[Dictionary], Callable on_finish)
+			var lines = new Godot.Collections.Array<Godot.Collections.Dictionary>
 			{
-				new DialogueLine(
-					LocalizationManager.Instance.GetText("DIALOG_TITLE_GREETING"),
-					LocalizationManager.Instance.GetText("WELCOME_MESSAGE")),
-				new DialogueLine(
-					LocalizationManager.Instance.GetText("DIALOG_TITLE_TUTORIAL"),
-					LocalizationManager.Instance.GetText("TUTORIAL_MOVE")),
-				new DialogueLine(
-					LocalizationManager.Instance.GetText("DIALOG_TITLE_TUTORIAL"),
-					LocalizationManager.Instance.GetText("TUTORIAL_OBJECTIVE"))
+				new Godot.Collections.Dictionary
+				{
+					{"name", "SALUDOS"},
+					{"text", "¡Bienvenido a la costa!"}
+				},
+				new Godot.Collections.Dictionary
+				{
+					{"name", "TUTORIAL"},
+					{"text", "Usa WASD para moverte y ESPACIO para saltar."}
+				},
+				new Godot.Collections.Dictionary
+				{
+					{"name", "TUTORIAL"},
+					{"text", "Ahora te encuentras en la playa, rodeado de hermosas palmeras y un sol radiante, pero, necesitamos de tu ayuda para recoger la basura que se encuentra en la playa y el mar... "}
+				}
 			};
 
-			_dialogueBox.StartDialogue(dialogueLines, OnDialogueComplete);
+			if (_dialogueBox != null && _dialogueBox.HasMethod("start_dialogue"))
+			{
+				_dialogueBox.Call("start_dialogue", lines, new Callable(this, nameof(OnDialogueComplete)));
+			}
+			else
+			{
+				GD.PushWarning("DialogueBox node missing or does not implement start_dialogue. Skipping tutorial dialogue.");
+				OnDialogueComplete();
+			}
 		}
 
 		private void OnIntroAnimationComplete()
 		{
 			_introCompleted = true;
-			TryStartGame();
+			// Iniciar diálogos justo cuando la cámara llega a la vista del jugador
+			if (!_dialogueStarted)
+			{
+				_dialogueStarted = true;
+				StartTutorialDialogue();
+			}
+			else
+			{
+				TryStartGame();
+			}
 		}
 
 		private void OnDialogueComplete()
@@ -150,7 +175,7 @@ namespace PedaleandoGame.Levels
 
 			TransitionToGameCamera();
 			EnablePlayerControl();
-			ShowHUD();
+			ShowHUDFade();
 		}
 
 		private void TransitionToGameCamera()
@@ -177,6 +202,41 @@ namespace PedaleandoGame.Levels
 			if (_hudCounter != null)
 			{
 				_hudCounter.Visible = true;
+			}
+		}
+
+		private void ShowHUDFade(float duration = 0.6f)
+		{
+			if (_hudCounter == null)
+				return;
+
+			// Ensure visible before fade-in
+			_hudCounter.Visible = true;
+
+			foreach (var item in EnumerateCanvasItems(_hudCounter))
+			{
+				var start = item.Modulate;
+				start.A = 0.0f;
+				var end = new Color(start.R, start.G, start.B, 1.0f);
+				item.Modulate = start;
+
+				var t = CreateTween();
+				t.SetTrans(Tween.TransitionType.Sine).SetEase(Tween.EaseType.InOut);
+				t.TweenProperty(item, "modulate", end, duration);
+			}
+		}
+
+		private IEnumerable<CanvasItem> EnumerateCanvasItems(Node parent)
+		{
+			foreach (var child in parent.GetChildren())
+			{
+				if (child is CanvasItem ci)
+					yield return ci;
+				if (child.GetChildCount() > 0)
+				{
+					foreach (var nested in EnumerateCanvasItems(child))
+						yield return nested;
+				}
 			}
 		}
 
