@@ -42,8 +42,8 @@ namespace PedaleandoGame.UI.Screens
 
 		private void GoToMenu()
 		{
-			// Main menu está en la raíz del proyecto
-			GetTree().ChangeSceneToFile("res://MainMenu.tscn");
+			// Ir al menú principal en C#
+			GetTree().ChangeSceneToFile("res://Source/UI/Menus/MainMenu.tscn");
 		}
 
 		private void OnVideoStreamPlayerFinished()

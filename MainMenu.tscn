@@ -1,18 +1,18 @@
 [gd_scene load_steps=17 format=3 uid="uid://s2e7upxrq6nc"]
 
-[ext_resource type="Texture2D" uid="uid://dnoqc3vrtfvn6" path="res://Images/prueba20193.png" id="2_iwfq2"]
-[ext_resource type="FontFile" uid="uid://ccw85tcxbfsoy" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="3_qoqlk"]
-[ext_resource type="Texture2D" uid="uid://bfau0q7q4evcp" path="res://Images/Pedaleando LOGO_FINAL-01 (1).png" id="4_7r1g0"]
+[ext_resource type="Script" uid="uid://d1v1ob7nms8wp" path="res://Source/UI/Menus/MainMenu.cs" id="1_fimr5"]
+[ext_resource type="Texture2D" uid="uid://blum6il5aplxw" path="res://Images/prueba20193.png" id="2_iwfq2"]
+[ext_resource type="FontFile" uid="uid://4nrqtwvetrjm" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="3_qoqlk"]
+[ext_resource type="Texture2D" uid="uid://bsg2h5qmrhpx0" path="res://Images/Pedaleando LOGO_FINAL-01 (1).png" id="4_7r1g0"]
 [ext_resource type="Script" uid="uid://bbpp6oup0jb6n" path="res://jugar.gd" id="5_7r1g0"]
-[ext_resource type="Texture2D" uid="uid://ewtpfhfkhmjq" path="res://Images/Pedaleando LOGO_FINAL-01 HOVER.png" id="5_cqjrg"]
-[ext_resource type="Script" uid="uid://f1jnokbjvj7s" path="res://MainMenu.gd" id="6_7r1g0"]
+[ext_resource type="Texture2D" uid="uid://cpqv8pkprj8dr" path="res://Images/Pedaleando LOGO_FINAL-01 HOVER.png" id="5_cqjrg"]
 [ext_resource type="Script" uid="uid://5qgrxxnx6d4s" path="res://historia.gd" id="6_cqjrg"]
 [ext_resource type="Script" uid="uid://djknx4c2f1v2d" path="res://BOTONES.gd" id="7_e2xy7"]
 [ext_resource type="PackedScene" uid="uid://bj4l12pwu20wy" path="res://exit_dialog.tscn" id="9_fimr5"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iwfq2"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2xy7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iwfq2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7r1g0"]
 
@@ -63,7 +63,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("6_7r1g0")
+script = ExtResource("1_fimr5")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -108,22 +108,22 @@ alignment = 1
 
 [node name="JUGAR" type="Button" parent="Menu"]
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0.286275, 0.392157, 1)
 theme_override_colors/font_color = Color(0.866667, 1, 0.301961, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0.286275, 0.392157, 1)
 theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("3_qoqlk")
 theme_override_font_sizes/font_size = 80
-theme_override_styles/focus = SubResource("StyleBoxEmpty_iwfq2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_e2xy7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iwfq2")
 text = "JUGAR DEMO"
 flat = true
 script = ExtResource("5_7r1g0")
 
 [node name="HISTORIA" type="Button" parent="Menu"]
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0.286275, 0.392157, 1)
 theme_override_colors/font_color = Color(0.866667, 1, 0.301961, 1)
+theme_override_colors/font_outline_color = Color(0, 0.286275, 0.392157, 1)
 theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("3_qoqlk")
 theme_override_font_sizes/font_size = 60
@@ -135,8 +135,8 @@ script = ExtResource("6_cqjrg")
 
 [node name="SALIR" type="Button" parent="Menu"]
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0.286275, 0.392157, 1)
 theme_override_colors/font_color = Color(0.866667, 1, 0.301961, 1)
+theme_override_colors/font_outline_color = Color(0, 0.286275, 0.392157, 1)
 theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("3_qoqlk")
 theme_override_font_sizes/font_size = 60
@@ -171,7 +171,7 @@ value = 50.0
 ticks_on_borders = true
 
 [node name="Label" type="Label" parent="SoundSldiers/Music/HSlider"]
-layout_mode = 2
+layout_mode = 0
 offset_left = -98.0
 offset_right = 30.0
 offset_bottom = 16.0
@@ -197,7 +197,7 @@ value = 50.0
 ticks_on_borders = true
 
 [node name="Label" type="Label" parent="SoundSldiers/VFX/HSlider"]
-layout_mode = 2
+layout_mode = 0
 offset_left = -98.0
 offset_right = 30.0
 offset_bottom = 16.0
