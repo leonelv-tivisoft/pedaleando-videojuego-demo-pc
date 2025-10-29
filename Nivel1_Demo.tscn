@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dudm5rsth0au1" path="res://Source/Levels/Level1/Level1Demo.cs" id="1_hf418"]
 [ext_resource type="Environment" uid="uid://b5t3imwgoregf" path="res://Images/Nivel1_Demo.tres" id="3_5uy85"]
 [ext_resource type="PackedScene" uid="uid://dgtjcl66cwsyr" path="res://Personaje.tscn" id="4_uoxt3"]
+[ext_resource type="Script" uid="uid://lodxgtg2sbgt" path="res://Source/Entities/Player/Player.cs" id="4_ekvse"]
 [ext_resource type="Script" uid="uid://cmmjl57s4665o" path="res://UnderwaterSwitch.gd" id="6_f8u1r"]
 [ext_resource type="PackedScene" uid="uid://bgsogx8olns7w" path="res://Arena.tscn" id="6_nl528"]
 [ext_resource type="PackedScene" uid="uid://bv7vixtlqklcx" path="res://Agua.tscn" id="7_uoxt3"]
@@ -109,7 +110,26 @@ camera_attributes = SubResource("CameraAttributesPractical_ioqx1")
 
 [node name="Player" parent="." instance=ExtResource("4_uoxt3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.12314, 6.1265, 25.9416)
-
+script = ExtResource("4_ekvse")
+DisableOccludersWhenUnderwater = true
+Sensibilidad = 0.003
+Velocidad = 5.0
+Gravedad = 9.8
+FuerzaSalto = 5.0
+SurfaceMargin = 0.25
+WaterMaterial = null
+EnvDefault = null
+EnvUnderwater = null
+SwimSpeed = 5.0
+SwimAccel = 6.0
+SwimDecel = 5.0
+SwimVerticalSpeed = 3.2
+Buoyancy = 2.8
+WaterGravity = 0.6
+WaterDrag = 2.0
+MaxVerticalSpeed = 4.0
+WaterAreaPath = NodePath("../Agua2/Area3D")
+WaterSurfacePath = NodePath("../Agua2")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.49058, 0.312998, -0.813243, 0.161674, 0.949754, 0.26801, 0.856267, 0, -0.516534, 0, 18.5808, 0)
 light_color = Color(1, 0.984314, 0.678431, 1)
@@ -125,11 +145,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.5557, -22.3752, 2.45)
 [node name="Agua" parent="." instance=ExtResource("7_uoxt3")]
 transform = Transform3D(-9.04826e-08, 0, 1.105, 0, 8.204, 0, -2.07, 0, -4.83011e-08, -103.396, -19.0217, 2.26096)
 script = ExtResource("6_f8u1r")
+camera = NodePath("../Player/Pivot/PlayerCamera")
 
 [node name="Agua2" parent="." instance=ExtResource("7_uoxt3")]
 transform = Transform3D(-9.04826e-08, 0, 1.105, 0, 8.204, 0, -2.07, 0, -4.83011e-08, -92.5506, -26.8626, 2.261)
 mesh = null
 script = ExtResource("6_f8u1r")
+camera = NodePath("../Player/Pivot/PlayerCamera")
 
 [node name="Area3D" type="Area3D" parent="Agua2"]
 transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, -0.5, 0)
