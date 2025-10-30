@@ -9,7 +9,7 @@ namespace PedaleandoGame.Entities.Player
 
 		// Controles existentes
 		[Export] public float Sensibilidad { get; set; } = 0.003f;
-		[Export] public float Velocidad { get; set; } = 5.0f;
+		[Export] public float Velocidad { get; set; } = 30.0f;
 		[Export] public float Gravedad { get; set; } = 9.8f;
 		[Export] public float FuerzaSalto { get; set; } = 5.0f;
 
@@ -43,12 +43,17 @@ namespace PedaleandoGame.Entities.Player
 		[Export] public float WaterDrag { get; set; } = 2.0f;
 		[Export] public float MaxVerticalSpeed { get; set; } = 4.0f;
 
+		// Logs de movimiento
+		[Export] public bool DebugMovementLog { get; set; } = true;
+		[Export(PropertyHint.Range, "0.01,5,0.01")] public float MovementLogMinDistance { get; set; } = 0.5f;
+
 		private Vector3 _direction = Vector3.Zero;
 		private float _rotationX = 0.0f;
 
 		private bool _inWater = false;
 		private bool _underwater = false;
 		private int _waterCounter = 0;
+		private Vector3 _lastLoggedPos = Vector3.Inf;
 
 		public override void _Ready()
 		{
@@ -75,6 +80,8 @@ namespace PedaleandoGame.Entities.Player
 			{
 				_waterSurface = GetNodeOrNull<Node3D>(WaterSurfacePath);
 			}
+
+			_lastLoggedPos = GlobalTransform.Origin;
 		}
 
 		public override void _Input(InputEvent @event)
@@ -140,6 +147,8 @@ namespace PedaleandoGame.Entities.Player
 			{
 				WalkPhysics(delta);
 			}
+
+			LogMovementPositionIfChanged();
 		}
 
 		private void WalkPhysics(double delta)
@@ -240,6 +249,23 @@ namespace PedaleandoGame.Entities.Player
 			}
 
 			MoveAndSlide();
+		}
+
+		private void LogMovementPositionIfChanged()
+		{
+			if (!DebugMovementLog) return;
+			var pos = GlobalTransform.Origin;
+			if (_lastLoggedPos.IsEqualApprox(Vector3.Inf))
+			{
+				_lastLoggedPos = pos;
+				return;
+			}
+
+			if (pos.DistanceTo(_lastLoggedPos) >= MovementLogMinDistance)
+			{
+				GD.Print($"[Player] Posición X={pos.X:0.00}, Y={pos.Y:0.00}, Z={pos.Z:0.00}");
+				_lastLoggedPos = pos;
+			}
 		}
 
 		private void OnWaterBodyEntered(Node body)

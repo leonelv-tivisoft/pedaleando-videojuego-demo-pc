@@ -29,13 +29,13 @@ build/
 dist/
 
 # C# / Visual Studio / Rider
-*.sln
-*.csproj
+# Keep Godot C# project files, but ignore others
 *.user
 *.userprefs
 *.vcxproj*
 *.pdb
 *.mdb
+*.csproj.old
 
 # IDEs
 .vscode/
