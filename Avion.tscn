@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://o14aq8yfwnbl"]
 
-[ext_resource type="Script" path="res://Source/Entities/MobileObject/Airplain.cs" id="1_airplain"]
-[ext_resource type="PackedScene" uid="uid://cxra5lhccpimj" path="res://Avion.blend" id="2_lcs6l"]
+[ext_resource type="Script" uid="uid://b4faoigarnejk" path="res://Source/Entities/MobileObject/Airplain.cs" id="1_airplain"]
+[ext_resource type="PackedScene" uid="uid://ccc4rbkquc7qk" path="res://Avion.blend" id="2_lcs6l"]
 
 [sub_resource type="Curve3D" id="Curve3D_h411v"]
 _data = {
@@ -16,15 +16,9 @@ point_count = 14
 curve = SubResource("Curve3D_h411v")
 
 [node name="AvionFollow" type="PathFollow3D" parent="AvionPath"]
-transform = Transform3D(0.999796, -0.000473525, 0.01986, 0, 0.999711, 0.0238365, -0.0198655, -0.0238317, 0.999519, 0, 0, 0)
+transform = Transform3D(0.999796, -0.00047352214, 0.019859983, 0, 0.999711, 0.023836391, -0.019865487, -0.02383156, 0.99951893, 0, 0, 0)
 rotation_mode = 4
 script = ExtResource("1_airplain")
-Speed = 60.0
-LoopPath = true
-BankDeg = 18.0
-WobbleAmp = 1.5
-WobbleFreq = 0.35
-PlanePath = NodePath("Plane")
 
 [node name="Plane" parent="AvionPath/AvionFollow" instance=ExtResource("2_lcs6l")]
 transform = Transform3D(0.24, 0, 0, 7.27596e-12, 0.24, 4.65661e-10, 0, -4.65661e-10, 0.24, 0, 0, 0)
