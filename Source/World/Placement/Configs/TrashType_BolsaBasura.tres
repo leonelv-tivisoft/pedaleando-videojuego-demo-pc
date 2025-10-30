@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Source/World/Placement/TrashTypeConfig.cs" id="1"]
+
+[resource]
+script = ExtResource("1")
+ScenePath = "res://BolsaBasura.tscn"
+AllowedKinds = 3
+ClearanceRadius = 0.35
+MinSeparation = 3.0
+FixedCount = 0
+Weight = 0.7

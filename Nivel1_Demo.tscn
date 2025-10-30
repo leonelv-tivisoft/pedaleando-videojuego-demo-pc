@@ -25,6 +25,12 @@
 [ext_resource type="PackedScene" uid="uid://bfsbp0jiqky6p" path="res://PilaLatas.tscn" id="23_15eih"]
 [ext_resource type="Script" uid="uid://bkj2hh6osdl3s" path="res://Source/UI/Components/Counter.cs" id="24_hf418"]
 [ext_resource type="PackedScene" uid="uid://o14aq8yfwnbl" path="res://Avion.tscn" id="25_ekvse"]
+[ext_resource type="Script" path="res://Source/World/Placement/PlacementZone3D.cs" id="26_placezone"]
+[ext_resource type="Script" path="res://Source/World/Placement/MapPlacementService.cs" id="27_mapservice"]
+[ext_resource type="Script" path="res://Source/World/Placement/ScenarioGenerator.cs" id="28_scengen"]
+[ext_resource type="Script" path="res://Source/World/Placement/TrashScenarioInitializer.cs" id="29_init"]
+[ext_resource type="Resource" path="res://Source/World/Placement/Configs/TrashType_PilaLatas.tres" id="30_pila"]
+[ext_resource type="Resource" path="res://Source/World/Placement/Configs/TrashType_BolsaBasura.tres" id="31_bolsa"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ioqx1"]
 dof_blur_far_distance = 28.0
@@ -100,6 +106,9 @@ Tree/styles/panel = null
 
 [sub_resource type="LabelSettings" id="LabelSettings_we6oh"]
 font_size = 14
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_zone_ground"]
+size = Vector3(120, 12, 120)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_hf418")
@@ -319,3 +328,47 @@ text = "00"
 
 [node name="Node3D" parent="." instance=ExtResource("25_ekvse")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.16435, 40.446, -56.41544)
+
+[node name="Placement" type="Node3D" parent="."]
+
+[node name="MapPlacementService" type="Node" parent="Placement"]
+script = ExtResource("27_mapservice")
+
+[node name="ScenarioGenerator" type="Node" parent="Placement"]
+script = ExtResource("28_scengen")
+PlacementServicePath = NodePath("../MapPlacementService")
+PlayerStartNodePath = NodePath("../Player")
+PlayerSpeedMps = 4.0
+TimeBudgetSeconds = 180.0
+TotalObjects = 20
+GlobalMinSeparation = 1.5
+
+[node name="TrashAuto" type="Node3D" parent="Placement"]
+
+[node name="TrashScenarioInitializer" type="Node" parent="Placement"]
+script = ExtResource("29_init")
+ScenarioGeneratorPath = NodePath("../ScenarioGenerator")
+ParentForInstancesPath = NodePath("../TrashAuto")
+Types = Array[Resource]([ExtResource("30_pila"), ExtResource("31_bolsa")])
+
+[node name="PlacementZones" type="Node3D" parent="Placement"]
+
+[node name="PlacementZone_Ground" type="Area3D" parent="Placement/PlacementZones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 6, 10)
+script = ExtResource("26_placezone")
+collision_layer = 0
+collision_mask = 0
+Kind = 1
+Enabled = true
+Weight = 1.0
+GroundMask = 1
+RockMask = 4
+MaxSlopeDeg = 35.0
+SurfaceOffset = 0.05
+WaterSurfaceNode = NodePath("")
+WaterSurfaceY = 0.0
+MinUnderwaterDepth = 0.5
+MaxUnderwaterDepth = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Placement/PlacementZones/PlacementZone_Ground"]
+shape = SubResource("BoxShape3D_zone_ground")
