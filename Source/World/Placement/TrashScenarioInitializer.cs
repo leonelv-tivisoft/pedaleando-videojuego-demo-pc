@@ -102,16 +102,24 @@ namespace PedaleandoGame.World.Placement
                         n3.GlobalTransform = new Transform3D(n3.GlobalTransform.Basis, spawn);
 
                         // Añadir componente de caída/flotabilidad
-                        var fallComp = new TrashPlacementPhysics
+                        // Adjuntar física sólo si no existe ya (evita duplicación con auto-attach en Trash)
+                        TrashPlacementPhysics fallCompExisting = null;
+                        foreach (var ch in n3.GetChildren())
                         {
-                            StartHeightY = StartHeightY,
-                            WaterSurfaceNodePath = WaterSurfaceNodePath,
-                            ProbabilityFloat = ProbabilityFloat,
-                            FloatOffsetMax = FloatOffsetMax,
-                            GroundMask = GroundMask,
-                            RockMask = RockMask
-                        };
-                        n3.AddChild(fallComp);
+                            if (ch is TrashPlacementPhysics tpp) { fallCompExisting = tpp; break; }
+                        }
+                        if (fallCompExisting == null)
+                        {
+                            fallCompExisting = new TrashPlacementPhysics();
+                            n3.AddChild(fallCompExisting);
+                        }
+                        // Asegurar configuración coherente aunque ya existiera
+                        fallCompExisting.StartHeightY = StartHeightY;
+                        fallCompExisting.WaterSurfaceNodePath = WaterSurfaceNodePath;
+                        fallCompExisting.ProbabilityFloat = ProbabilityFloat;
+                        fallCompExisting.FloatOffsetMax = FloatOffsetMax;
+                        fallCompExisting.GroundMask = GroundMask;
+                        fallCompExisting.RockMask = RockMask;
 
                         if (DebugLogging)
                             GD.Print($"[TrashScenarioInitializer] Spawned {plan.Type.ScenePath} at X={spawn.X:0.00}, Y={spawn.Y:0.00}, Z={spawn.Z:0.00} (falling)");

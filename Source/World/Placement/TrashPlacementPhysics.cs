@@ -29,7 +29,8 @@ namespace PedaleandoGame.World.Placement
         [Export(PropertyHint.Layers3DPhysics)] public uint GroundMask { get; set; } = 1; // suelo
         [Export(PropertyHint.Layers3DPhysics)] public uint RockMask { get; set; } = 4; // rocas
 
-        private Node3D _parent3D;
+    private Node3D _parent3D;
+    private Rid _parentRid;
         private Node3D _waterNode;
         private bool _isFloater;
         private float _floatOffset;
@@ -47,6 +48,10 @@ namespace PedaleandoGame.World.Placement
             }
 
             SetPhysicsProcess(true);
+            if (_parent3D is CollisionObject3D co)
+            {
+                _parentRid = co.GetRid();
+            }
 
             if (WaterSurfaceNodePath != null && !WaterSurfaceNodePath.IsEmpty)
             {
@@ -110,6 +115,11 @@ namespace PedaleandoGame.World.Placement
             var to = new Vector3(pos.X, pos.Y - 1000f, pos.Z);
             var query = PhysicsRayQueryParameters3D.Create(from, to);
             query.CollisionMask = GroundMask | RockMask;
+            // Evitar autoimpactarse: excluir el propio RID del padre
+            var exclude = new Godot.Collections.Array<Rid>();
+            if (_parentRid.IsValid)
+                exclude.Add(_parentRid);
+            query.Exclude = exclude;
             var hit = space.IntersectRay(query);
             if (hit.Count > 0)
             {
@@ -124,6 +134,14 @@ namespace PedaleandoGame.World.Placement
                         _settled = true;
                     }
                 }
+            }
+
+            // Seguridad ante valores no finitos
+            if (float.IsNaN(pos.X) || float.IsNaN(pos.Y) || float.IsNaN(pos.Z) ||
+                float.IsInfinity(pos.X) || float.IsInfinity(pos.Y) || float.IsInfinity(pos.Z))
+            {
+                _settled = true;
+                return;
             }
 
             _parent3D.GlobalTransform = new Transform3D(_parent3D.GlobalTransform.Basis, pos);

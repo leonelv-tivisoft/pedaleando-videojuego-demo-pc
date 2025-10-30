@@ -1,4 +1,5 @@
 using Godot;
+using PedaleandoGame.World.Placement;
 using PedaleandoGame.Managers;
 
 namespace PedaleandoGame.Entities.Props
@@ -16,6 +17,16 @@ namespace PedaleandoGame.Entities.Props
 		[Export] public abstract float PromptMaxShowDist { get; set; }
 
 		[Export] protected AudioStreamPlayer3D PickupSound { get; set; }
+
+		// Auto-attachment of placement physics so new trash types inherit the falling/float behavior
+		[ExportGroup("Placement Physics")]
+		[Export] public bool AutoAttachPlacementPhysics { get; set; } = true;
+		[Export] public NodePath WaterSurfaceNodePath { get; set; }
+		[Export(PropertyHint.Range, "0,1,0.01")] public float ProbabilityFloat { get; set; } = 0.5f;
+		[Export(PropertyHint.Range, "0,3,0.01")] public float FloatOffsetMax { get; set; } = 0.6f;
+		[Export] public float StartHeightY { get; set; } = 30f;
+		[Export(PropertyHint.Layers3DPhysics)] public uint GroundMask { get; set; } = 1; // terrain
+		[Export(PropertyHint.Layers3DPhysics)] public uint RockMask { get; set; } = 4;   // rocks
 
 		public void SetSelect(Node obj)
 		{
@@ -90,12 +101,18 @@ namespace PedaleandoGame.Entities.Props
 				_outlineMesh.Visible = _selected;
 			}
 
-			// Elevación si está seleccionada
-			if (_bodyName != null)
+			// Elevación visual si está seleccionada: evitar mover el cuerpo si hay física de colocación
+			bool hasPlacementPhysics = false;
+			foreach (var child in GetChildren())
 			{
+				if (child is TrashPlacementPhysics) { hasPlacementPhysics = true; break; }
+			}
+			if (!hasPlacementPhysics && _bodyName != null)
+			{
+				// Sin física de caída: pequeño offset visual
 				_bodyName.Position = new Vector3(
 					_bodyName.Position.X,
-					_selected ? OutlineWidth : 0.0f,
+					_selected ? OutlineWidth : _bodyName.Position.Y,
 					_bodyName.Position.Z
 				);
 			}
@@ -121,6 +138,34 @@ namespace PedaleandoGame.Entities.Props
 			{
 				player.InteractObject += SetSelect;
 			}
+
+			// Ensure we have the placement physics component once in the hierarchy
+			if (AutoAttachPlacementPhysics)
+			{
+				EnsurePlacementPhysics();
+			}
+		}
+
+		private void EnsurePlacementPhysics()
+		{
+			// Avoid duplicates if added by the spawner
+			foreach (var child in GetChildren())
+			{
+				if (child is TrashPlacementPhysics)
+					return;
+			}
+
+			var comp = new TrashPlacementPhysics
+			{
+				Name = "TrashPlacementPhysics",
+				StartHeightY = StartHeightY,
+				WaterSurfaceNodePath = WaterSurfaceNodePath,
+				ProbabilityFloat = ProbabilityFloat,
+				FloatOffsetMax = FloatOffsetMax,
+				GroundMask = GroundMask,
+				RockMask = RockMask
+			};
+			AddChild(comp);
 		}
 
 	}
