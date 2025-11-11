@@ -8,6 +8,9 @@ namespace PedaleandoGame.Entities.MobileObject
     /// </summary>
     public partial class Airplain : PathFollower
     {
+        // Override speed property - ACTUAL VALUE IS SET IN _Ready() METHOD BELOW
+        [Export] public override float Speed { get; set; }
+        
         // Visual child to animate (the airplane mesh/model)
         [Export] public NodePath PlanePath { get; set; } = new NodePath("Plane");
 
@@ -25,6 +28,10 @@ namespace PedaleandoGame.Entities.MobileObject
             base._Ready();
             _plane = GetNodeOrNull<Node3D>(PlanePath);
             _prevForward = -GlobalTransform.Basis.Z; // current forward
+            
+            // AIRPLANE SPEED CONFIGURATION - Modify this value to change airplane speed
+            // This overrides any inspector values to ensure consistent behavior
+            Speed = 10.0f;
         }
 
         protected override void OnAfterMove(double delta)

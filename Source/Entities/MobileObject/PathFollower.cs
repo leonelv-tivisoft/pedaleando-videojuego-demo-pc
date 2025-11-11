@@ -8,7 +8,7 @@ namespace PedaleandoGame.Entities.MobileObject
     /// </summary>
     public abstract partial class PathFollower : PathFollow3D
     {
-        [Export] public float Speed { get; set; } = 60.0f; // units per second along the path
+        [Export] public virtual float Speed { get; set; } = 6.0f; // units per second along the path
         [Export] public bool LoopPath { get; set; } = true; // loop when reaching the end
 
         private Path3D _path;
@@ -36,11 +36,13 @@ namespace PedaleandoGame.Entities.MobileObject
                 return;
 
             var length = _path.Curve.GetBakedLength();
+            if (length <= 0.0f) return;
+
             Progress += Speed * delta;
 
             if (Progress > length)
             {
-                if (LoopPath && length > 0.0f)
+                if (LoopPath)
                 {
                     Progress = Mathf.PosMod(Progress, length);
                 }
