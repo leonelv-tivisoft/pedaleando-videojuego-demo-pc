@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgtjcl66cwsyr"]
+[gd_scene load_steps=7 format=3 uid="uid://dgtjcl66cwsyr"]
 
 [ext_resource type="Script" uid="uid://lodxgtg2sbgt" path="res://Source/Entities/Player/Player.cs" id="1_48aib"]
 [ext_resource type="Environment" uid="uid://b5t3imwgoregf" path="res://Images/Nivel1_Demo.tres" id="2_47rpa"]
@@ -6,6 +6,12 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_joryr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m64m5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_48aib"]
+albedo_color = Color(0.3621021, 0.77323025, 3.85046e-07, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_47rpa"]
+material = SubResource("StandardMaterial3D_48aib")
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_48aib")
@@ -29,3 +35,8 @@ fov = 100.0
 
 [node name="RayCast3D" type="RayCast3D" parent="Pivot/PlayerCamera"]
 target_position = Vector3(0, 0, -5)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.995, 0, 0, 0, 2.995, 0, 0, 0, 2.995, 0, 0, 0)
+layers = 512
+mesh = SubResource("SphereMesh_47rpa")

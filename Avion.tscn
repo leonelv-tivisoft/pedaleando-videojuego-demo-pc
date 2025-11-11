@@ -1,14 +1,59 @@
-[gd_scene load_steps=4 format=3 uid="uid://o14aq8yfwnbl"]
+[gd_scene load_steps=11 format=3 uid="uid://o14aq8yfwnbl"]
 
 [ext_resource type="Script" uid="uid://b4faoigarnejk" path="res://Source/Entities/MobileObject/Airplain.cs" id="1_airplain"]
 [ext_resource type="PackedScene" uid="uid://ccc4rbkquc7qk" path="res://Avion.blend" id="2_lcs6l"]
 
 [sub_resource type="Curve3D" id="Curve3D_h411v"]
+closed = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.242311, -0.290827, -12.1951, 0, 0, 0, 0, 0, 0, -0.393244, -0.47198, -19.7912, 3.06, 0, 0, 0, 0, 0, -6.66331, 0.595195, -24.9904, 0, 0, 0, 0, 0, 0, -26.8533, 1.62456, -17.7295, 0, 0, 0, 0, 0, 0, -39.5239, -8.25948, 0.869387, 0, 0, 0, 0, 0, 0, -36.667, -46.1379, 55.5413, 0, 0, 0, 0, 0, 0, 46.3314, -66.0964, 58.0299, 0, 0, 0, 0, 0, 0, 173.965, -18.6444, -52.8356, 0, 0, 0, 0, 0, 0, -164.098, 53.8466, -50.0529, 0, 0, 0, 0, 0, 0, -271.907, -8.74605, 76.6322, 0, 0, 0, 0, 0, 0, 228.555, -58.2379, -12.3539, 0, 0, 0, 0, 0, 0, -6.28106, 50.9352, -96.7474, 0, 0, 0, 0, 0, 0, -150.515, -45.4283, 91.267),
+"points": PackedVector3Array(-4.0751762, 0, 34.13461, 4.0751762, 0, -34.13461, 0, 0, 0, 47.045723, -7.97913, -7.484268, -47.045723, 7.97913, 7.484268, -109.3975, 1.3992958, -58.04158, -77.11244, -4.5776367e-05, -9.615646, 77.11244, 4.5776367e-05, 9.615646, 24.395462, -0.72587585, 136.13278, -18.213959, 1.9848347e-05, 24.467682, 18.213959, -1.9848347e-05, -24.467682, 153.13683, 0.595195, 95.19733, 31.957901, 0, 30.669273, -31.957901, 0, -30.669273, 185.86986, 1.6245117, -108.70791, 66.606415, 4.1007996e-05, -15.516495, -66.606415, -4.1007996e-05, 15.516495, -39.5239, -8.25948, -162.71762, -33.333794, -4.5776367e-05, -21.773792, 33.333794, 4.5776367e-05, 21.773792, -36.667, 57.812454, 55.5413, -30.230152, 2.2888184e-05, 16.28085, 30.230152, -2.2888184e-05, -16.28085, 46.3314, 40.35537, 58.0299, 17.932114, 2.2888184e-05, 71.21086, -17.932114, -2.2888184e-05, -71.21086, 173.965, 37.7949, -52.8356, 30.078735, 0, -28.294415, -30.078735, 0, 28.294415, -176.95554, 53.846558, -85.40131, -21.189499, -5.531311e-05, -9.1706505, 21.189499, 5.531311e-05, 9.1706505, -154.81125, 7.6174984, -12.747589, -4.2925415, -4.5776367e-05, 57.675602, 4.2925415, 4.5776367e-05, -57.675602, 228.555, 71.42818, -12.3539, 103.306145, 1.9073486e-05, 3.296997, -103.306145, -1.9073486e-05, -3.296997, -6.28106, 50.9352, -96.7474, -38.427658, 0, -23.461098, 38.427658, 0, 23.461098, -151.69305, 33.829956, 92.02701),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 14
+
+[sub_resource type="Gradient" id="Gradient_lk8eg"]
+colors = PackedColorArray(0.15487596, 0.154876, 0.15487596, 1, 0.6117647, 0.6117647, 0.6117647, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lcs6l"]
+gradient = SubResource("Gradient_lk8eg")
+
+[sub_resource type="Curve" id="Curve_h411v"]
+_data = [Vector2(0, 0.3), 0.0, 0.0, 0, 0, Vector2(0.5, 2), 2.7544148, 0.0, 0, 0, Vector2(1, 3.5), 2.7544148, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_m4m42"]
+curve = SubResource("Curve_h411v")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_axvnr"]
+lifetime_randomness = 0.5
+direction = Vector3(0, 0.2, 0)
+spread = 70.0
+initial_velocity_min = 0.39999998
+initial_velocity_max = 1.1999999
+angular_velocity_min = 0.5999839
+angular_velocity_max = 1.9999839
+gravity = Vector3(0, 0.1, 0)
+damping_min = 0.05
+damping_max = 0.2
+scale_min = 0.0
+scale_max = 12.059999
+scale_curve = SubResource("CurveTexture_m4m42")
+color_ramp = SubResource("GradientTexture1D_lcs6l")
+turbulence_enabled = true
+turbulence_noise_strength = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ytpxy"]
+transparency = 1
+diffuse_mode = 3
+billboard_mode = 1
+proximity_fade_enabled = true
+proximity_fade_distance = 1036.34
+distance_fade_mode = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_cddxl"]
+material = SubResource("StandardMaterial3D_ytpxy")
+radius = 1.0
+height = 2.0
 
 [node name="Node3D" type="Node3D"]
 
@@ -16,9 +61,19 @@ point_count = 14
 curve = SubResource("Curve3D_h411v")
 
 [node name="AvionFollow" type="PathFollow3D" parent="AvionPath"]
-transform = Transform3D(0.999796, -0.00047352214, 0.019859983, 0, 0.999711, 0.023836391, -0.019865487, -0.02383156, 0.99951893, 0, 0, 0)
+transform = Transform3D(0.9929411, 0, -0.11854371, 0, 1.0000043, 0, 0.11854275, 0, 0.99294907, 0, 0, 0)
 rotation_mode = 4
 script = ExtResource("1_airplain")
 
 [node name="Plane" parent="AvionPath/AvionFollow" instance=ExtResource("2_lcs6l")]
-transform = Transform3D(0.24, 0, 0, 7.27596e-12, 0.24, 4.65661e-10, 0, -4.65661e-10, 0.24, 0, 0, 0)
+transform = Transform3D(1.2000002, -3.6379816e-11, 0, 3.637981e-11, 1.2, 2.3283053e-09, 0, -2.3283053e-09, 1.2, 0.18574452, 0, 1.555826)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="AvionPath/AvionFollow/Plane"]
+transform = Transform3D(1.1590618, -1.5265567e-16, 8.195639e-08, -1.3877788e-16, 0.61059874, -4.440892e-16, -1.6391277e-07, -1.110223e-15, 1.0367236, -0.009336472, 1.1891161, 3.3658721)
+amount = 200
+lifetime = 2.0
+randomness = 0.27
+use_fixed_seed = true
+seed = 1587800521
+process_material = SubResource("ParticleProcessMaterial_axvnr")
+draw_pass_1 = SubResource("SphereMesh_cddxl")

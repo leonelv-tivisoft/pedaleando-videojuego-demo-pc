@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://1jyn7n55pj5a"]
+[gd_scene load_steps=52 format=3 uid="uid://1jyn7n55pj5a"]
 
 [ext_resource type="Script" uid="uid://dudm5rsth0au1" path="res://Source/Levels/Level1/Level1Demo.cs" id="1_hf418"]
 [ext_resource type="Environment" uid="uid://b5t3imwgoregf" path="res://Images/Nivel1_Demo.tres" id="3_5uy85"]
@@ -7,13 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://bgsogx8olns7w" path="res://Arena.tscn" id="6_nl528"]
 [ext_resource type="PackedScene" uid="uid://bv7vixtlqklcx" path="res://Agua.tscn" id="7_uoxt3"]
 [ext_resource type="PackedScene" uid="uid://cjwbl0wosgltw" path="res://Pasarela_Madera.blend" id="8_8wh2g"]
-[ext_resource type="PackedScene" uid="uid://insuh5yxjekt" path="res://Assets_playeros.blend" id="12_6o6jf"]
+[ext_resource type="PackedScene" uid="uid://du34xw4w6ipu7" path="res://Assets_playeros.blend" id="12_6o6jf"]
 [ext_resource type="PackedScene" uid="uid://bxl588hahmmge" path="res://Montañas.blend" id="13_2uaxw"]
 [ext_resource type="Script" uid="uid://c17v2moafngdh" path="res://Fade_in.gd" id="13_f8u1r"]
 [ext_resource type="Theme" uid="uid://dfvbuw7bnaiyl" path="res://TemaBotones.tres" id="14_bmqie"]
 [ext_resource type="ArrayOccluder3D" uid="uid://di4lsyj7rjxmh" path="res://Nivel1_Demo.occ" id="14_f8u1r"]
 [ext_resource type="PackedScene" uid="uid://b8v8sw8pwaxcr" path="res://SalvavidasDelimitadores.blend" id="14_uoxt3"]
-[ext_resource type="PackedScene" uid="uid://ch4sckybto6va" path="res://VegetacionPlaya.blend" id="15_30p7m"]
+[ext_resource type="PackedScene" uid="uid://bko06y0m03tb0" path="res://VegetacionPlaya.blend" id="15_30p7m"]
 [ext_resource type="PackedScene" uid="uid://bj4l12pwu20wy" path="res://exit_dialog.tscn" id="15_uoxt3"]
 [ext_resource type="FontFile" uid="uid://4nrqtwvetrjm" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="17_oafcm"]
 [ext_resource type="FontFile" uid="uid://dxk1shenb87p3" path="res://Fonts/comforta/Comfortaa-Regular.ttf" id="18_7snaq"]
@@ -32,6 +32,10 @@
 [ext_resource type="Script" uid="uid://cssjkqga3lgig" path="res://Source/World/Placement/TrashScenarioInitializer.cs" id="29_init"]
 [ext_resource type="Resource" path="res://Source/World/Placement/Configs/TrashType_PilaLatas.tres" id="30_pila"]
 [ext_resource type="Resource" path="res://Source/World/Placement/Configs/TrashType_BolsaBasura.tres" id="31_bolsa"]
+[ext_resource type="PackedScene" uid="uid://dx6x41j6cr3e0" path="res://Temporizador.tscn" id="33_ia8dn"]
+[ext_resource type="Shader" uid="uid://bviy3s8wqsol0" path="res://MiniMapa.gdshader" id="34_8hqoc"]
+[ext_resource type="Texture2D" uid="uid://de851upixbe7f" path="res://circulo.png" id="34_x751v"]
+[ext_resource type="Script" uid="uid://ckkac16x4ixue" path="res://MinimapCamera.gd" id="36_xxga3"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ioqx1"]
 dof_blur_far_distance = 28.0
@@ -111,6 +115,30 @@ font_size = 14
 [sub_resource type="BoxShape3D" id="BoxShape3D_zone_ground"]
 size = Vector3(120, 12, 120)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x751v"]
+bg_color = Color(0.29803923, 0.52156866, 0.6431373, 1)
+border_width_left = 40
+border_width_top = 40
+border_width_right = 40
+border_width_bottom = 40
+border_color = Color(0.16404107, 0.32501006, 0.40791795, 1)
+border_blend = true
+corner_radius_top_left = 730
+corner_radius_top_right = 730
+corner_radius_bottom_right = 730
+corner_radius_bottom_left = 730
+corner_detail = 20
+shadow_size = 65
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xxga3"]
+shader = ExtResource("34_8hqoc")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 0.432
+shader_parameter/feather = 0.072
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wk0ab"]
+viewport_path = NodePath("HUD/PanelContainer/SubViewport")
+
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_hf418")
 
@@ -151,7 +179,7 @@ transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, -0.5,
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Agua2/Area3D"]
-transform = Transform3D(1, 0, 2.49756e-12, 0, 1, 0, -1.02389e-11, 0, 1, 0.240334, 1.33858, -3.76418)
+transform = Transform3D(1, 0, 1.0450307e-11, 0, 1, 0, -1.0238921e-11, 0, 1, 0.24033403, 1.3385801, -3.764183)
 shape = SubResource("BoxShape3D_bf6rf")
 debug_color = Color(3.65794e-06, 0.740473, 0.864301, 1)
 
@@ -167,6 +195,7 @@ transform = Transform3D(1.92, 0, 0, 0, 1.92, 0, 0, 0, 1.92, 11.7343, 4.92199, 9.
 [node name="IntroCamera" type="Camera3D" parent="."]
 transform = Transform3D(0.0157073, -0.0523295, 0.998506, 0, 0.99863, 0.052336, -0.999877, -0.000822056, 0.0156858, 61.3668, 37.3643, 1.48896)
 keep_aspect = 0
+cull_mask = 1048063
 fov = 100.0
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
@@ -272,31 +301,26 @@ LabelCount = NodePath("ContadorBasuras")
 LabelGoal = NodePath("Label")
 
 [node name="TextureRect" type="TextureRect" parent="Contador"]
-anchors_preset = 3
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -281.0
-offset_top = -118.0
+offset_left = -288.0
+offset_top = 5.0
 offset_right = -161.0
+offset_bottom = 132.0
 grow_horizontal = 0
-grow_vertical = 0
 texture = ExtResource("21_7snaq")
-expand_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Contador"]
-anchors_preset = 3
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -105.0
-offset_top = -86.0
-offset_right = 104.0
-offset_bottom = -25.0
+offset_left = -114.0
+offset_top = 42.0
+offset_right = 95.0
+offset_bottom = 103.0
 grow_horizontal = 0
-grow_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 5
@@ -305,19 +329,17 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("17_oafcm")
 theme_override_font_sizes/font_size = 40
 text = " /20"
+metadata/_edit_use_anchors_ = true
 
 [node name="ContadorBasuras" type="Label" parent="Contador"]
-anchors_preset = 3
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -166.0
-offset_top = -86.0
-offset_right = -33.0
-offset_bottom = -25.0
+offset_left = -167.0
+offset_top = 40.0
+offset_right = -34.0
+offset_bottom = 101.0
 grow_horizontal = 0
-grow_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 5
@@ -326,6 +348,7 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("17_oafcm")
 theme_override_font_sizes/font_size = 40
 text = "00"
+metadata/_edit_use_anchors_ = true
 
 [node name="Node3D" parent="." instance=ExtResource("25_ekvse")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.16435, 40.446, -56.41544)
@@ -361,3 +384,45 @@ WaterSurfaceNode = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Placement/PlacementZones/PlacementZone_Ground"]
 shape = SubResource("BoxShape3D_zone_ground")
+
+[node name="Temporizador" parent="." instance=ExtResource("33_ia8dn")]
+position = Vector2(-1, -1)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -1339.0
+offset_right = 1391.0
+offset_bottom = 42.0
+grow_vertical = 0
+scale = Vector2(0.15, 0.15)
+pivot_offset = Vector2(0, 1311)
+theme_override_styles/panel = SubResource("StyleBoxFlat_x751v")
+
+[node name="TextureRect" type="TextureRect" parent="HUD/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("34_x751v")
+
+[node name="MinimapImage" type="TextureRect" parent="HUD/PanelContainer"]
+material = SubResource("ShaderMaterial_xxga3")
+layout_mode = 2
+texture = SubResource("ViewportTexture_wk0ab")
+
+[node name="SubViewport" type="SubViewport" parent="HUD/PanelContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(150, 150)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="HUD/PanelContainer/SubViewport"]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -0.048568726, 61.73752, 0)
+projection = 1
+current = true
+size = 60.0
+script = ExtResource("36_xxga3")
+player_path = NodePath("../../../../Player")
+follow_smooth = 0.2

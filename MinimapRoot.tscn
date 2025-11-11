@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ds5mm1lanhh4c"]
+
+[node name="MinimapRoot" type="Node3D"]
+
+[node name="MinimapCamera" type="Camera3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 47.963, 0)
+fov = 99.2

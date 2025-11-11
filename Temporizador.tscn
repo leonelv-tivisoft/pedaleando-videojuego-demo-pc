@@ -1,0 +1,99 @@
+[gd_scene load_steps=16 format=3 uid="uid://dx6x41j6cr3e0"]
+
+[ext_resource type="Script" uid="uid://8s8yqtciycsu" path="res://Timer.gd" id="1_ko3ml"]
+[ext_resource type="Texture2D" uid="uid://df534hctl6ueh" path="res://Images/Reloj/stage1.png" id="2_bbgwm"]
+[ext_resource type="Texture2D" uid="uid://tpqui5cays1f" path="res://Images/Reloj/stage6.png" id="3_2ykkv"]
+[ext_resource type="Texture2D" uid="uid://coqv5r5x8n7lp" path="res://Images/Reloj/stage4.png" id="4_8fpda"]
+[ext_resource type="Texture2D" uid="uid://83y08hgpbkog" path="res://Images/Reloj/stage2.png" id="5_cotdl"]
+[ext_resource type="Texture2D" uid="uid://du5v2450ljrr0" path="res://Images/Reloj/stage3.png" id="6_ii2u6"]
+[ext_resource type="Texture2D" uid="uid://b5vd5nu7l15g7" path="res://Images/Reloj/stage8.png" id="7_2itqn"]
+[ext_resource type="Texture2D" uid="uid://dpjpael5mcamd" path="res://Images/Reloj/stage5.png" id="8_ygia7"]
+[ext_resource type="Texture2D" uid="uid://b5uy755hndtof" path="res://Images/Reloj/stage7.png" id="9_5g4jj"]
+[ext_resource type="Texture2D" uid="uid://ds7m7rypsscvv" path="res://Images/Reloj/stage11.png" id="10_a06bi"]
+[ext_resource type="Texture2D" uid="uid://i2qg676wp73n" path="res://Images/Reloj/stage9.png" id="11_6waby"]
+[ext_resource type="Texture2D" uid="uid://d0bal0r50yeew" path="res://Images/Reloj/stage12.png" id="12_2wwrl"]
+[ext_resource type="Texture2D" uid="uid://caxhdfof74a4" path="res://Images/Reloj/stage10.png" id="13_wocba"]
+[ext_resource type="FontFile" uid="uid://4nrqtwvetrjm" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="14_h51kf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4apnl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bbgwm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2ykkv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8fpda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cotdl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ii2u6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2itqn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ygia7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_a06bi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5g4jj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6waby")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_2wwrl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_wocba")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Temporizador" type="Node2D"]
+
+[node name="Temporizador" type="CanvasLayer" parent="."]
+script = ExtResource("1_ko3ml")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Temporizador"]
+scale = Vector2(0.044810247, 0.044810247)
+sprite_frames = SubResource("SpriteFrames_4apnl")
+frame_progress = 0.38870132
+centered = false
+
+[node name="Timer" type="Timer" parent="Temporizador"]
+
+[node name="Box" type="VBoxContainer" parent="Temporizador"]
+custom_minimum_size = Vector2(393.155, 100)
+offset_right = 393.155
+offset_bottom = 171.425
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Temporizador/Box"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("14_h51kf")
+theme_override_font_sizes/font_size = 22
+text = "TIEMPO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TiempoLabel" type="Label" parent="Temporizador/Box"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("14_h51kf")
+theme_override_font_sizes/font_size = 30
+text = "00 : 00"
+horizontal_alignment = 1
