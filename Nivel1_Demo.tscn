@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://1jyn7n55pj5a"]
+[gd_scene load_steps=46 format=3 uid="uid://1jyn7n55pj5a"]
 
 [ext_resource type="Script" uid="uid://dudm5rsth0au1" path="res://Source/Levels/Level1/Level1Demo.cs" id="1_hf418"]
 [ext_resource type="Environment" uid="uid://b5t3imwgoregf" path="res://Images/Nivel1_Demo.tres" id="3_5uy85"]
@@ -32,6 +32,7 @@
 [ext_resource type="Script" uid="uid://cssjkqga3lgig" path="res://Source/World/Placement/TrashScenarioInitializer.cs" id="29_init"]
 [ext_resource type="Resource" path="res://Source/World/Placement/Configs/TrashType_PilaLatas.tres" id="30_pila"]
 [ext_resource type="Resource" path="res://Source/World/Placement/Configs/TrashType_BolsaBasura.tres" id="31_bolsa"]
+[ext_resource type="PackedScene" path="res://Temporizador.tscn" id="33_8hqoc"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ioqx1"]
 dof_blur_far_distance = 28.0
@@ -277,9 +278,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -281.0
-offset_top = -118.0
-offset_right = -161.0
+offset_left = -310.0
+offset_top = -634.0
+offset_right = -190.0
+offset_bottom = -516.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("21_7snaq")
@@ -291,10 +293,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -105.0
-offset_top = -86.0
-offset_right = 104.0
-offset_bottom = -25.0
+offset_left = -144.0
+offset_top = -607.0
+offset_right = 65.0
+offset_bottom = -546.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -312,10 +314,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -166.0
-offset_top = -86.0
-offset_right = -33.0
-offset_bottom = -25.0
+offset_left = -197.0
+offset_top = -608.0
+offset_right = -59.0
+offset_bottom = -550.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -361,3 +363,5 @@ WaterSurfaceNode = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Placement/PlacementZones/PlacementZone_Ground"]
 shape = SubResource("BoxShape3D_zone_ground")
+
+[node name="Temporizador" parent="." instance=ExtResource("33_8hqoc")]
