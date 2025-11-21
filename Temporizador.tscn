@@ -1,18 +1,18 @@
 [gd_scene load_steps=16 format=3 uid="uid://dx6x41j6cr3e0"]
 
 [ext_resource type="Script" uid="uid://cs5l7jq1i884d" path="res://Source/Managers/Timer/Timer.gd" id="1_ko3ml"]
-[ext_resource type="Texture2D" uid="uid://df534hctl6ueh" path="res://Images/Reloj/stage1.png" id="2_bbgwm"]
-[ext_resource type="Texture2D" uid="uid://tpqui5cays1f" path="res://Images/Reloj/stage6.png" id="3_2ykkv"]
-[ext_resource type="Texture2D" uid="uid://coqv5r5x8n7lp" path="res://Images/Reloj/stage4.png" id="4_8fpda"]
-[ext_resource type="Texture2D" uid="uid://83y08hgpbkog" path="res://Images/Reloj/stage2.png" id="5_cotdl"]
-[ext_resource type="Texture2D" uid="uid://du5v2450ljrr0" path="res://Images/Reloj/stage3.png" id="6_ii2u6"]
-[ext_resource type="Texture2D" uid="uid://b5vd5nu7l15g7" path="res://Images/Reloj/stage8.png" id="7_2itqn"]
-[ext_resource type="Texture2D" uid="uid://dpjpael5mcamd" path="res://Images/Reloj/stage5.png" id="8_ygia7"]
-[ext_resource type="Texture2D" uid="uid://b5uy755hndtof" path="res://Images/Reloj/stage7.png" id="9_5g4jj"]
-[ext_resource type="Texture2D" uid="uid://ds7m7rypsscvv" path="res://Images/Reloj/stage11.png" id="10_a06bi"]
-[ext_resource type="Texture2D" uid="uid://i2qg676wp73n" path="res://Images/Reloj/stage9.png" id="11_6waby"]
-[ext_resource type="Texture2D" uid="uid://d0bal0r50yeew" path="res://Images/Reloj/stage12.png" id="12_2wwrl"]
-[ext_resource type="Texture2D" uid="uid://caxhdfof74a4" path="res://Images/Reloj/stage10.png" id="13_wocba"]
+[ext_resource type="Texture2D" uid="uid://b5sv22t5w3u1j" path="res://Images/Reloj/stage1.png" id="2_bbgwm"]
+[ext_resource type="Texture2D" uid="uid://bd3sxqk8skhhx" path="res://Images/Reloj/stage6.png" id="3_2ykkv"]
+[ext_resource type="Texture2D" uid="uid://cd2jtfnyy7v7r" path="res://Images/Reloj/stage4.png" id="4_8fpda"]
+[ext_resource type="Texture2D" uid="uid://dicoh1u380hpl" path="res://Images/Reloj/stage2.png" id="5_cotdl"]
+[ext_resource type="Texture2D" uid="uid://cp0k11oioeap7" path="res://Images/Reloj/stage3.png" id="6_ii2u6"]
+[ext_resource type="Texture2D" uid="uid://bk1e7naovha4y" path="res://Images/Reloj/stage8.png" id="7_2itqn"]
+[ext_resource type="Texture2D" uid="uid://3faosal0s7t0" path="res://Images/Reloj/stage5.png" id="8_ygia7"]
+[ext_resource type="Texture2D" uid="uid://cmyqfy05n8c3j" path="res://Images/Reloj/stage7.png" id="9_5g4jj"]
+[ext_resource type="Texture2D" uid="uid://bb36cnaqn1kkq" path="res://Images/Reloj/stage11.png" id="10_a06bi"]
+[ext_resource type="Texture2D" uid="uid://boc86t1sgi0n1" path="res://Images/Reloj/stage9.png" id="11_6waby"]
+[ext_resource type="Texture2D" uid="uid://rqnr6705ms18" path="res://Images/Reloj/stage12.png" id="12_2wwrl"]
+[ext_resource type="Texture2D" uid="uid://0hmgujbqknjl" path="res://Images/Reloj/stage10.png" id="13_wocba"]
 [ext_resource type="FontFile" uid="uid://4nrqtwvetrjm" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="14_h51kf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4apnl"]
@@ -62,6 +62,7 @@ animations = [{
 [node name="Temporizador" type="Node2D"]
 
 [node name="Temporizador" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("1_ko3ml")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Temporizador"]
@@ -71,8 +72,6 @@ frame_progress = 0.38870132
 centered = false
 
 [node name="Timer" type="Timer" parent="Temporizador"]
-wait_time = 1.0
-autostart = false
 
 [node name="Box" type="VBoxContainer" parent="Temporizador"]
 custom_minimum_size = Vector2(393.155, 100)
