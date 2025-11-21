@@ -17,6 +17,8 @@ material = SubResource("StandardMaterial3D_48aib")
 script = ExtResource("1_48aib")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+layers = 0
 mesh = SubResource("CapsuleMesh_joryr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

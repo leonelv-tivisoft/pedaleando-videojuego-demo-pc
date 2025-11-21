@@ -1,58 +1,61 @@
 [gd_scene load_steps=16 format=3 uid="uid://dx6x41j6cr3e0"]
 
 [ext_resource type="Script" uid="uid://8s8yqtciycsu" path="res://Timer.gd" id="1_ko3ml"]
-[ext_resource type="Texture2D" uid="uid://df534hctl6ueh" path="res://Images/Reloj/stage1.png" id="2_bbgwm"]
-[ext_resource type="Texture2D" uid="uid://tpqui5cays1f" path="res://Images/Reloj/stage6.png" id="3_2ykkv"]
-[ext_resource type="Texture2D" uid="uid://coqv5r5x8n7lp" path="res://Images/Reloj/stage4.png" id="4_8fpda"]
-[ext_resource type="Texture2D" uid="uid://83y08hgpbkog" path="res://Images/Reloj/stage2.png" id="5_cotdl"]
-[ext_resource type="Texture2D" uid="uid://du5v2450ljrr0" path="res://Images/Reloj/stage3.png" id="6_ii2u6"]
-[ext_resource type="Texture2D" uid="uid://b5vd5nu7l15g7" path="res://Images/Reloj/stage8.png" id="7_2itqn"]
-[ext_resource type="Texture2D" uid="uid://dpjpael5mcamd" path="res://Images/Reloj/stage5.png" id="8_ygia7"]
-[ext_resource type="Texture2D" uid="uid://b5uy755hndtof" path="res://Images/Reloj/stage7.png" id="9_5g4jj"]
-[ext_resource type="Texture2D" uid="uid://ds7m7rypsscvv" path="res://Images/Reloj/stage11.png" id="10_a06bi"]
-[ext_resource type="Texture2D" uid="uid://i2qg676wp73n" path="res://Images/Reloj/stage9.png" id="11_6waby"]
-[ext_resource type="Texture2D" uid="uid://d0bal0r50yeew" path="res://Images/Reloj/stage12.png" id="12_2wwrl"]
-[ext_resource type="Texture2D" uid="uid://caxhdfof74a4" path="res://Images/Reloj/stage10.png" id="13_wocba"]
+[ext_resource type="Texture2D" uid="uid://d010jwgl7uouj" path="res://RelojImagesLow/stage1.png" id="2_ko3ml"]
+[ext_resource type="Texture2D" uid="uid://d4i8p0e4n5tni" path="res://RelojImagesLow/stage2.png" id="3_bbgwm"]
+[ext_resource type="Texture2D" uid="uid://dxl6aq86i024q" path="res://RelojImagesLow/stage3.png" id="4_2ykkv"]
+[ext_resource type="Texture2D" uid="uid://cl10lauagcn3d" path="res://RelojImagesLow/stage4.png" id="5_8fpda"]
+[ext_resource type="Texture2D" uid="uid://cetguenj22yfv" path="res://RelojImagesLow/stage5.png" id="6_cotdl"]
+[ext_resource type="Texture2D" uid="uid://5w0aul4t4gjq" path="res://RelojImagesLow/stage6.png" id="7_ii2u6"]
+[ext_resource type="Texture2D" uid="uid://db246fam5a8gc" path="res://RelojImagesLow/stage7.png" id="8_2itqn"]
+[ext_resource type="Texture2D" uid="uid://dw22refhmra2a" path="res://RelojImagesLow/stage8.png" id="9_ygia7"]
+[ext_resource type="Texture2D" uid="uid://dx4j3cxur1e3l" path="res://RelojImagesLow/stage10.png" id="10_5g4jj"]
+[ext_resource type="Texture2D" uid="uid://jx360288hppk" path="res://RelojImagesLow/stage9.png" id="11_a06bi"]
+[ext_resource type="Texture2D" uid="uid://cayn0ejebhh1s" path="res://RelojImagesLow/stage11.png" id="12_6waby"]
+[ext_resource type="Texture2D" uid="uid://boe3mt6lndhp1" path="res://RelojImagesLow/stage12.png" id="13_2wwrl"]
 [ext_resource type="FontFile" uid="uid://4nrqtwvetrjm" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="14_h51kf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4apnl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_bbgwm")
+"texture": ExtResource("2_ko3ml")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_2ykkv")
+"texture": ExtResource("3_bbgwm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_8fpda")
+"texture": ExtResource("4_2ykkv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_cotdl")
+"texture": ExtResource("5_8fpda")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_ii2u6")
+"texture": ExtResource("6_cotdl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_2itqn")
+"texture": ExtResource("7_ii2u6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_ygia7")
+"texture": ExtResource("8_2itqn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_a06bi")
+"texture": ExtResource("9_ygia7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_5g4jj")
+"texture": ExtResource("10_5g4jj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_6waby")
+"texture": ExtResource("11_a06bi")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_2wwrl")
+"texture": ExtResource("7_ii2u6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_wocba")
+"texture": ExtResource("12_6waby")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2wwrl")
 }],
 "loop": true,
 "name": &"default",
@@ -65,9 +68,10 @@ animations = [{
 script = ExtResource("1_ko3ml")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Temporizador"]
-scale = Vector2(0.044810247, 0.044810247)
+scale = Vector2(0.64, 0.64)
 sprite_frames = SubResource("SpriteFrames_4apnl")
-frame_progress = 0.38870132
+frame = 1
+frame_progress = 0.45796308
 centered = false
 
 [node name="Timer" type="Timer" parent="Temporizador"]

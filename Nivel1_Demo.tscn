@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://1jyn7n55pj5a"]
+[gd_scene load_steps=54 format=3 uid="uid://1jyn7n55pj5a"]
 
 [ext_resource type="Script" uid="uid://dudm5rsth0au1" path="res://Source/Levels/Level1/Level1Demo.cs" id="1_hf418"]
 [ext_resource type="Environment" uid="uid://b5t3imwgoregf" path="res://Images/Nivel1_Demo.tres" id="3_5uy85"]
@@ -36,6 +36,8 @@
 [ext_resource type="Shader" uid="uid://bviy3s8wqsol0" path="res://MiniMapa.gdshader" id="34_8hqoc"]
 [ext_resource type="Texture2D" uid="uid://de851upixbe7f" path="res://circulo.png" id="34_x751v"]
 [ext_resource type="Script" uid="uid://ckkac16x4ixue" path="res://MinimapCamera.gd" id="36_xxga3"]
+[ext_resource type="PackedScene" uid="uid://w5ae3so6ti13" path="res://debi_jump.tscn" id="37_wk0ab"]
+[ext_resource type="Script" uid="uid://ysd6k4wink1s" path="res://debi_jump.gd" id="38_gj3o3"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ioqx1"]
 dof_blur_far_distance = 28.0
@@ -147,7 +149,7 @@ environment = ExtResource("3_5uy85")
 camera_attributes = SubResource("CameraAttributesPractical_ioqx1")
 
 [node name="Player" parent="." instance=ExtResource("4_uoxt3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.12314, 6.1265, 25.9416)
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 8.12314, 7.5282693, 26.326475)
 WaterAreaPath = NodePath("../Agua2/Area3D")
 WaterSurfacePath = NodePath("../Agua2")
 
@@ -426,3 +428,9 @@ size = 60.0
 script = ExtResource("36_xxga3")
 player_path = NodePath("../../../../Player")
 follow_smooth = 0.2
+
+[node name="DebiJump" parent="." instance=ExtResource("37_wk0ab")]
+transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, 7.971758, 4.8808584, 26.540606)
+script = ExtResource("38_gj3o3")
+play_after_seconds = 1.0
+autohide_after_seconds = 1.8

@@ -1,16 +1,21 @@
-[gd_scene load_steps=17 format=3 uid="uid://bpuylb8j8olsj"]
+[gd_scene load_steps=20 format=3 uid="uid://bpuylb8j8olsj"]
 
-[ext_resource type="Texture2D" path="res://Images/prueba20193.png" id="2_iwfq2"]
-[ext_resource type="FontFile" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="3_qoqlk"]
-[ext_resource type="Texture2D" path="res://Images/Pedaleando LOGO_FINAL-01 (1).png" id="4_7r1g0"]
-[ext_resource type="Script" path="res://Source/UI/Menus/MainMenu.cs" id="5_script"]
-[ext_resource type="Texture2D" path="res://Images/Pedaleando LOGO_FINAL-01 HOVER.png" id="5_cqjrg"]
-[ext_resource type="PackedScene" path="res://exit_dialog.tscn" id="9_fimr5"]
-[ext_resource type="Script" path="res://Source/UI/Components/AnimatedButton.cs" id="10_button"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iwfq2"]
+[ext_resource type="Texture2D" uid="uid://blum6il5aplxw" path="res://Images/prueba20193.png" id="2_iwfq2"]
+[ext_resource type="FontFile" uid="uid://4nrqtwvetrjm" path="res://Fonts/DODOL/Dodol Sabang.ttf" id="3_qoqlk"]
+[ext_resource type="Texture2D" uid="uid://bsg2h5qmrhpx0" path="res://Images/Pedaleando LOGO_FINAL-01 (1).png" id="4_7r1g0"]
+[ext_resource type="Texture2D" uid="uid://cpqv8pkprj8dr" path="res://Images/Pedaleando LOGO_FINAL-01 HOVER.png" id="5_cqjrg"]
+[ext_resource type="Script" uid="uid://d1v1ob7nms8wp" path="res://Source/UI/Menus/MainMenu.cs" id="5_script"]
+[ext_resource type="Script" uid="uid://c22w1uryte65m" path="res://Source/UI/Menus/sound_sldiers.gd" id="7_xq3q0"]
+[ext_resource type="Script" uid="uid://drd4gqoc6vpgb" path="res://Source/UI/Menus/MusicPrincipalMenu.gd" id="8_sn81y"]
+[ext_resource type="PackedScene" uid="uid://bj4l12pwu20wy" path="res://exit_dialog.tscn" id="9_fimr5"]
+[ext_resource type="Script" uid="uid://crtbeitcerurb" path="res://Source/UI/Menus/ui_sounds.gd" id="10_buots"]
+[ext_resource type="Script" uid="uid://drvomgoh5md3j" path="res://Source/UI/Components/AnimatedButton.cs" id="10_button"]
+[ext_resource type="AudioStream" uid="uid://dh3k5i0qnif87" path="res://addons/kenney_ui_audio/click4.wav" id="11_rvicr"]
+[ext_resource type="AudioStream" uid="uid://d4hdxia0kouo3" path="res://addons/kenney_ui_audio/rollover4.wav" id="11_sn81y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2xy7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iwfq2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7r1g0"]
 
@@ -106,22 +111,22 @@ alignment = 1
 
 [node name="JUGAR" type="Button" parent="Menu"]
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0.286275, 0.392157, 1)
 theme_override_colors/font_color = Color(0.866667, 1, 0.301961, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0.286275, 0.392157, 1)
 theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("3_qoqlk")
 theme_override_font_sizes/font_size = 80
-theme_override_styles/focus = SubResource("StyleBoxEmpty_iwfq2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_e2xy7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iwfq2")
 text = "JUGAR DEMO"
 flat = true
 script = ExtResource("10_button")
 
 [node name="HISTORIA" type="Button" parent="Menu"]
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0.286275, 0.392157, 1)
 theme_override_colors/font_color = Color(0.866667, 1, 0.301961, 1)
+theme_override_colors/font_outline_color = Color(0, 0.286275, 0.392157, 1)
 theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("3_qoqlk")
 theme_override_font_sizes/font_size = 60
@@ -133,8 +138,8 @@ script = ExtResource("10_button")
 
 [node name="SALIR" type="Button" parent="Menu"]
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0.286275, 0.392157, 1)
 theme_override_colors/font_color = Color(0.866667, 1, 0.301961, 1)
+theme_override_colors/font_outline_color = Color(0, 0.286275, 0.392157, 1)
 theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("3_qoqlk")
 theme_override_font_sizes/font_size = 60
@@ -154,6 +159,7 @@ offset_right = -12.0
 offset_bottom = 64.0
 grow_horizontal = 0
 theme_override_constants/separation = 15
+script = ExtResource("7_xq3q0")
 
 [node name="Music" type="VBoxContainer" parent="SoundSldiers"]
 layout_mode = 2
@@ -165,11 +171,12 @@ theme_override_constants/center_grabber = 1
 theme_override_styles/slider = SubResource("StyleBoxFlat_iwfq2")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_7r1g0")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_cqjrg")
+step = 0.05
 value = 50.0
 ticks_on_borders = true
 
 [node name="Label" type="Label" parent="SoundSldiers/Music/HSlider"]
-layout_mode = 2
+layout_mode = 0
 offset_left = -98.0
 offset_right = 30.0
 offset_bottom = 16.0
@@ -191,11 +198,12 @@ theme_override_constants/center_grabber = 1
 theme_override_styles/slider = SubResource("StyleBoxFlat_iwfq2")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_7r1g0")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_cqjrg")
+step = 0.05
 value = 50.0
 ticks_on_borders = true
 
 [node name="Label" type="Label" parent="SoundSldiers/VFX/HSlider"]
-layout_mode = 2
+layout_mode = 0
 offset_left = -98.0
 offset_right = 30.0
 offset_bottom = 16.0
@@ -208,10 +216,26 @@ text = "VFX"
 horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = &"Music"
+script = ExtResource("8_sn81y")
 
 [node name="ExitDialog" parent="." instance=ExtResource("9_fimr5")]
+oversampling_override = 1.0
 visible = false
 
+[node name="UISounds" type="Node" parent="."]
+script = ExtResource("10_buots")
+hover_sound = ExtResource("11_sn81y")
+click_sound = ExtResource("11_rvicr")
+
+[connection signal="mouse_entered" from="Menu/JUGAR" to="UISounds" method="_on_jugar_mouse_entered"]
+[connection signal="mouse_entered" from="Menu/JUGAR" to="UISounds" method="play_hover"]
 [connection signal="pressed" from="Menu/JUGAR" to="." method="OnJugarPressed"]
+[connection signal="pressed" from="Menu/JUGAR" to="UISounds" method="play_click"]
+[connection signal="mouse_entered" from="Menu/HISTORIA" to="UISounds" method="play_hover"]
 [connection signal="pressed" from="Menu/HISTORIA" to="." method="OnHistoriaPressed"]
+[connection signal="pressed" from="Menu/HISTORIA" to="UISounds" method="play_click"]
+[connection signal="mouse_entered" from="Menu/SALIR" to="UISounds" method="play_hover"]
 [connection signal="pressed" from="Menu/SALIR" to="." method="OnSalirPressed"]
+[connection signal="pressed" from="Menu/SALIR" to="UISounds" method="play_click"]
